@@ -290,7 +290,7 @@ Thread hilo;
     }//GEN-LAST:event_rsbtnMenuActionPerformed
 
     private void rSbtnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnProductosActionPerformed
-        // Boton de productos
+        // Boton de productos falta completar
         Productos p = new Productos();
         p.setVisible(true);
         this.dispose();
@@ -298,7 +298,7 @@ Thread hilo;
     }//GEN-LAST:event_rSbtnProductosActionPerformed
 
     private void rSbtnventas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnventas1ActionPerformed
-        //Boton de ventas
+        //Boton de ventas incompleto
         Ventas v = new Ventas();
         v.setVisible(true);
         
