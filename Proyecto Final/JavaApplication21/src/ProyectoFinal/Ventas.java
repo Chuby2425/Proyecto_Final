@@ -54,7 +54,9 @@ public class Ventas extends javax.swing.JFrame {
 
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblCantidad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCantidad.setText("CANTIDAD");
+        lblCantidad.setToolTipText("");
         lblCantidad.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnlPrincipal.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 80, -1));
 
@@ -117,7 +119,9 @@ public class Ventas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

@@ -28,13 +28,13 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlPrincipal = new javax.swing.JPanel();
-        txtUsuario = new javax.swing.JTextField();
+        lblUsuarioP = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
         lblContrasenna = new javax.swing.JLabel();
+        lblCandado = new javax.swing.JLabel();
         psfContrasenna = new javax.swing.JPasswordField();
         lblUsua = new javax.swing.JLabel();
-        lblCandado = new javax.swing.JLabel();
-        lblUsuarioP = new javax.swing.JLabel();
         rsbtnLogin = new rsbuttom.RSButtonMetro();
         rsbtnRegistrarse = new rsbuttom.RSButtonMetro();
         lblFondo = new javax.swing.JLabel();
@@ -43,33 +43,35 @@ public class Login extends javax.swing.JFrame {
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        pnlPrincipal.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 200, -1));
 
-        lblUsuario.setFont(new java.awt.Font("Microsoft YaHei", 0, 18)); // NOI18N
+        lblUsuarioP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
+        pnlPrincipal.add(lblUsuarioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, 30));
+
+        lblUsuario.setFont(new java.awt.Font("Bell MT", 3, 18)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(102, 102, 102));
         lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsuario.setText("Usuario");
         lblUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         lblUsuario.setInheritsPopupMenu(false);
-        pnlPrincipal.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 90, -1));
+        pnlPrincipal.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 90, 30));
+        pnlPrincipal.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 200, 30));
 
-        lblContrasenna.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        lblContrasenna.setFont(new java.awt.Font("Bell MT", 3, 18)); // NOI18N
+        lblContrasenna.setForeground(new java.awt.Color(102, 102, 102));
         lblContrasenna.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblContrasenna.setText("Contraseña");
-        pnlPrincipal.add(lblContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 110, -1));
-        pnlPrincipal.add(psfContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 200, 20));
-
-        lblUsua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuarioG.png"))); // NOI18N
-        pnlPrincipal.add(lblUsua, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 130, 140));
+        pnlPrincipal.add(lblContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, 30));
 
         lblCandado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/candado.png"))); // NOI18N
-        pnlPrincipal.add(lblCandado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, -1, -1));
+        pnlPrincipal.add(lblCandado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, 30));
+        pnlPrincipal.add(psfContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 200, 30));
 
-        lblUsuarioP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
-        pnlPrincipal.add(lblUsuarioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, -1, -1));
+        lblUsua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuarioG.png"))); // NOI18N
+        pnlPrincipal.add(lblUsua, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 150, 140));
 
         rsbtnLogin.setBackground(new java.awt.Color(0, 0, 0));
         rsbtnLogin.setText("Login");
-        pnlPrincipal.add(rsbtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 100, 30));
+        pnlPrincipal.add(rsbtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 100, 30));
 
         rsbtnRegistrarse.setBackground(new java.awt.Color(0, 0, 0));
         rsbtnRegistrarse.setText("Registrarse");
@@ -78,16 +80,16 @@ public class Login extends javax.swing.JFrame {
                 rsbtnRegistrarseActionPerformed(evt);
             }
         });
-        pnlPrincipal.add(rsbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 140, -1));
+        pnlPrincipal.add(rsbtnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 140, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo login.png"))); // NOI18N
-        pnlPrincipal.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 874, 580));
+        pnlPrincipal.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
