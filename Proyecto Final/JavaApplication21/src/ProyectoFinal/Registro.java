@@ -36,8 +36,8 @@ public class Registro extends javax.swing.JFrame {
         lblIconoPassword = new javax.swing.JLabel();
         lblIconoEmail = new javax.swing.JLabel();
         lblIconoRegistro = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         txtUserName = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         rsbtnRegistrase = new rsbuttom.RSButtonMetro();
         lblFondo = new javax.swing.JLabel();
@@ -86,6 +86,7 @@ public class Registro extends javax.swing.JFrame {
 
         lblIconoRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Icono de registro2.png"))); // NOI18N
         pnlPricipal.add(lblIconoRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+        pnlPricipal.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 230, 200, 30));
 
         txtUserName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUserName.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +95,6 @@ public class Registro extends javax.swing.JFrame {
             }
         });
         pnlPricipal.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 170, 200, 30));
-        pnlPricipal.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 230, 200, 30));
         pnlPricipal.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 290, 200, 30));
 
         rsbtnRegistrase.setBackground(new java.awt.Color(0, 0, 0));
@@ -176,6 +176,7 @@ public class Registro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIconoEmail;
@@ -187,7 +188,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPricipal;
     private rsbuttom.RSButtonMetro rsbtnRegistrase;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

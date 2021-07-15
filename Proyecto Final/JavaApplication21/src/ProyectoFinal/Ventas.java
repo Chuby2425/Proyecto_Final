@@ -28,6 +28,7 @@ public class Ventas extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlPrincipal = new javax.swing.JPanel();
+        lblInterthink = new javax.swing.JLabel();
         lblCantidad = new javax.swing.JLabel();
         lblProductos = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
@@ -48,26 +49,38 @@ public class Ventas extends javax.swing.JFrame {
         txtfSubTotalR = new javax.swing.JTextField();
         tbtnFacturar = new javax.swing.JToggleButton();
         tbtnHome = new javax.swing.JToggleButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblInterthink.setFont(new java.awt.Font("Poor Richard", 3, 36)); // NOI18N
+        lblInterthink.setForeground(new java.awt.Color(142, 48, 142));
+        lblInterthink.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblInterthink.setText("INTER THINK");
+        pnlPrincipal.add(lblInterthink, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 280, 30));
+
+        lblCantidad.setForeground(new java.awt.Color(0, 255, 255));
         lblCantidad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCantidad.setText("CANTIDAD");
         lblCantidad.setToolTipText("");
         lblCantidad.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        pnlPrincipal.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 80, -1));
+        pnlPrincipal.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 60, -1));
 
+        lblProductos.setForeground(new java.awt.Color(0, 255, 255));
+        lblProductos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblProductos.setText("PRODUCTOS");
-        pnlPrincipal.add(lblProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+        pnlPrincipal.add(lblProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 110, 20));
 
+        lblPrecio.setForeground(new java.awt.Color(0, 255, 255));
+        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrecio.setText("PRECIO");
-        pnlPrincipal.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
+        pnlPrincipal.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 100, -1));
 
+        lblPrecioTotal.setForeground(new java.awt.Color(0, 255, 255));
         lblPrecioTotal.setText("PRECIO TOTAL");
-        pnlPrincipal.add(lblPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, -1, -1));
+        pnlPrincipal.add(lblPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, 20));
         pnlPrincipal.add(txtfCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 50, -1));
         pnlPrincipal.add(txtfCantidad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 50, -1));
         pnlPrincipal.add(txtfProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 140, -1));
@@ -77,14 +90,18 @@ public class Ventas extends javax.swing.JFrame {
         pnlPrincipal.add(txtfPrecioTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 100, -1));
         pnlPrincipal.add(txtfPrecioTotal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 100, -1));
 
+        lblSubTotal.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
+        lblSubTotal.setForeground(new java.awt.Color(0, 255, 255));
         lblSubTotal.setText("Sub Total");
-        pnlPrincipal.add(lblSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, -1));
+        pnlPrincipal.add(lblSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
 
+        lblDescuento.setForeground(new java.awt.Color(0, 255, 255));
         lblDescuento.setText("Descuento");
-        pnlPrincipal.add(lblDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
+        pnlPrincipal.add(lblDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, -1, -1));
 
+        lblTotal.setForeground(new java.awt.Color(0, 255, 255));
         lblTotal.setText("Total");
-        pnlPrincipal.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, 20));
+        pnlPrincipal.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, 20));
 
         txtfDescuentoR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,27 +112,31 @@ public class Ventas extends javax.swing.JFrame {
         pnlPrincipal.add(txtfTotalR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 90, -1));
         pnlPrincipal.add(txtfSubTotalR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 90, -1));
 
+        tbtnFacturar.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         tbtnFacturar.setText("Facturar");
+        tbtnFacturar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tbtnFacturar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbtnFacturarActionPerformed(evt);
             }
         });
-        pnlPrincipal.add(tbtnFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 160, 60));
+        pnlPrincipal.add(tbtnFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 160, 60));
 
-        tbtnHome.setText("Home");
-        pnlPrincipal.add(tbtnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 90, 30));
+        tbtnHome.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        tbtnHome.setText("Limpiar");
+        tbtnHome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnlPrincipal.add(tbtnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 160, 60));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel2.setText("INTER THINK");
-        pnlPrincipal.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 150, 30));
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo de ventas.png"))); // NOI18N
+        pnlPrincipal.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -130, 670, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,9 +212,10 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblDescuento;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblInterthink;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblPrecioTotal;
     private javax.swing.JLabel lblProductos;
