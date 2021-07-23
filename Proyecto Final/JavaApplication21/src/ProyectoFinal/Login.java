@@ -5,6 +5,10 @@
  */
 package ProyectoFinal;
 
+import Clases.datosLogin;
+import Lógica.componentes;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jesus
@@ -29,11 +33,9 @@ public class Login extends javax.swing.JFrame {
 
         pnlPrincipal = new javax.swing.JPanel();
         lblUsuarioP = new javax.swing.JLabel();
-        lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        lblContrasenna = new javax.swing.JLabel();
         lblCandado = new javax.swing.JLabel();
-        psfContrasenna = new javax.swing.JPasswordField();
+        txtpassContraseña = new javax.swing.JPasswordField();
         lblUsua = new javax.swing.JLabel();
         rsbtnLogin = new rsbuttom.RSButtonMetro();
         rsbtnRegistrarse = new rsbuttom.RSButtonMetro();
@@ -45,32 +47,27 @@ public class Login extends javax.swing.JFrame {
         pnlPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUsuarioP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
-        pnlPrincipal.add(lblUsuarioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, 30));
+        pnlPrincipal.add(lblUsuarioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, 30));
 
-        lblUsuario.setFont(new java.awt.Font("Bell MT", 3, 18)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(102, 102, 102));
-        lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUsuario.setText("Usuario");
-        lblUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        lblUsuario.setInheritsPopupMenu(false);
-        pnlPrincipal.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 90, 30));
+        txtUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pnlPrincipal.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 200, 30));
 
-        lblContrasenna.setFont(new java.awt.Font("Bell MT", 3, 18)); // NOI18N
-        lblContrasenna.setForeground(new java.awt.Color(102, 102, 102));
-        lblContrasenna.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblContrasenna.setText("Contraseña");
-        pnlPrincipal.add(lblContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 110, 30));
-
         lblCandado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/candado.png"))); // NOI18N
-        pnlPrincipal.add(lblCandado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, 30));
-        pnlPrincipal.add(psfContrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 200, 30));
+        pnlPrincipal.add(lblCandado, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, 30));
+
+        txtpassContraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pnlPrincipal.add(txtpassContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 200, 30));
 
         lblUsua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuarioG.png"))); // NOI18N
         pnlPrincipal.add(lblUsua, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 150, 140));
 
         rsbtnLogin.setBackground(new java.awt.Color(0, 0, 0));
         rsbtnLogin.setText("Login");
+        rsbtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rsbtnLoginActionPerformed(evt);
+            }
+        });
         pnlPrincipal.add(rsbtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 100, 30));
 
         rsbtnRegistrarse.setBackground(new java.awt.Color(0, 0, 0));
@@ -100,8 +97,36 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rsbtnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rsbtnRegistrarseActionPerformed
-        // TODO add your handling code here:
+        // Ir a la ventana de registro
+        Registro r = new Registro();
+        r.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_rsbtnRegistrarseActionPerformed
+
+    private void rsbtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rsbtnLoginActionPerformed
+        // Iniciar sesión
+        String usuario = txtUsuario.getText();
+        String contraseña = String.valueOf(txtpassContraseña.getText());
+        
+        boolean inicio = true;
+        
+        for (datosLogin i : componentes.usuarios) {
+            if (i.getUsuario().equals(usuario) && i.getContraseña().equals(contraseña)) {
+                inicio = true;
+            }else{
+                inicio = false;
+            }
+        }
+        if (inicio) {
+            ProyectoFinal p = new ProyectoFinal();
+            p.setVisible(true);
+            
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "El usuario ingresado no existe. Intente de nuevo");
+        }
+    }//GEN-LAST:event_rsbtnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,15 +165,13 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblCandado;
-    private javax.swing.JLabel lblContrasenna;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblUsua;
-    private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblUsuarioP;
     private javax.swing.JPanel pnlPrincipal;
-    private javax.swing.JPasswordField psfContrasenna;
     private rsbuttom.RSButtonMetro rsbtnLogin;
     private rsbuttom.RSButtonMetro rsbtnRegistrarse;
     private javax.swing.JTextField txtUsuario;
+    private javax.swing.JPasswordField txtpassContraseña;
     // End of variables declaration//GEN-END:variables
 }
