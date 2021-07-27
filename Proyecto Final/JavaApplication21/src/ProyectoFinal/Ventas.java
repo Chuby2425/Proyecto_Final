@@ -34,13 +34,9 @@ public class Ventas extends javax.swing.JFrame {
         lblPrecio = new javax.swing.JLabel();
         lblPrecioTotal = new javax.swing.JLabel();
         txtfCantidad1 = new javax.swing.JTextField();
-        txtfCantidad2 = new javax.swing.JTextField();
         txtfProducto1 = new javax.swing.JTextField();
-        txtfProducto2 = new javax.swing.JTextField();
         txtfPrecio1 = new javax.swing.JTextField();
-        txtfPrecio2 = new javax.swing.JTextField();
         txtfPrecioTotal1 = new javax.swing.JTextField();
-        txtfPrecioTotal2 = new javax.swing.JTextField();
         lblSubTotal = new javax.swing.JLabel();
         lblDescuento = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
@@ -82,13 +78,9 @@ public class Ventas extends javax.swing.JFrame {
         lblPrecioTotal.setText("PRECIO TOTAL");
         pnlPrincipal.add(lblPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, 20));
         pnlPrincipal.add(txtfCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 50, -1));
-        pnlPrincipal.add(txtfCantidad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 50, -1));
         pnlPrincipal.add(txtfProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 140, -1));
-        pnlPrincipal.add(txtfProducto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 140, -1));
         pnlPrincipal.add(txtfPrecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 100, -1));
-        pnlPrincipal.add(txtfPrecio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 100, -1));
         pnlPrincipal.add(txtfPrecioTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 100, -1));
-        pnlPrincipal.add(txtfPrecioTotal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 100, -1));
 
         lblSubTotal.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
         lblSubTotal.setForeground(new java.awt.Color(0, 255, 255));
@@ -109,7 +101,13 @@ public class Ventas extends javax.swing.JFrame {
             }
         });
         pnlPrincipal.add(txtfDescuentoR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 90, -1));
-        pnlPrincipal.add(txtfTotalR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 90, -1));
+
+        txtfTotalR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfTotalRActionPerformed(evt);
+            }
+        });
+        pnlPrincipal.add(txtfTotalR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 90, -1));
         pnlPrincipal.add(txtfSubTotalR, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 90, -1));
 
         tbtnFacturar.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
@@ -120,12 +118,12 @@ public class Ventas extends javax.swing.JFrame {
                 tbtnFacturarActionPerformed(evt);
             }
         });
-        pnlPrincipal.add(tbtnFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 160, 60));
+        pnlPrincipal.add(tbtnFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 160, 60));
 
         tbtnHome.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
         tbtnHome.setText("Limpiar");
         tbtnHome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnlPrincipal.add(tbtnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 160, 60));
+        pnlPrincipal.add(tbtnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 160, 60));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo de ventas.png"))); // NOI18N
         pnlPrincipal.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -130, 670, 570));
@@ -153,28 +151,14 @@ public class Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtfDescuentoRActionPerformed
 
     private void tbtnFacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtnFacturarActionPerformed
-       double pro1,pro2,vup1,vup2,vtp1,vtp2,subtotal = 0,descuento = 0,vtotal;
        
-       pro1=Double.parseDouble(txtfCantidad1.getText());
-       pro2=Double.parseDouble(txtfCantidad2.getText());
-       vup1=Double.parseDouble(txtfPrecio1.getText());
-       vup2=Double.parseDouble(txtfPrecio2.getText());
-       vtp1=pro1*vup1;
-       vtp2=pro2*vup2;
-       
-       String valt1 = vtp1 +"";
-       String valt2 = vtp2 +"";
-       txtfPrecioTotal1.setText(valt1);
-       txtfPrecioTotal2.setText(valt2);
-       subtotal= vtp1+vtp2;
-       String st = subtotal+"";
-       txtfSubTotalR.setText(st);
-       vtotal= subtotal - descuento;
-       String vt = vtotal+"";
-       txtfTotalR.setText(vt);
        
        
     }//GEN-LAST:event_tbtnFacturarActionPerformed
+
+    private void txtfTotalRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfTotalRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtfTotalRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,14 +209,10 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JToggleButton tbtnFacturar;
     private javax.swing.JToggleButton tbtnHome;
     private javax.swing.JTextField txtfCantidad1;
-    private javax.swing.JTextField txtfCantidad2;
     private javax.swing.JTextField txtfDescuentoR;
     private javax.swing.JTextField txtfPrecio1;
-    private javax.swing.JTextField txtfPrecio2;
     private javax.swing.JTextField txtfPrecioTotal1;
-    private javax.swing.JTextField txtfPrecioTotal2;
     private javax.swing.JTextField txtfProducto1;
-    private javax.swing.JTextField txtfProducto2;
     private javax.swing.JTextField txtfSubTotalR;
     private javax.swing.JTextField txtfTotalR;
     // End of variables declaration//GEN-END:variables
