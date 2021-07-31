@@ -17,7 +17,8 @@ public class Ventas extends javax.swing.JFrame {
     public Ventas() {
         initComponents();
     }
-
+//fran se cago e medio proyecto
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +47,7 @@ public class Ventas extends javax.swing.JFrame {
         tbtnFacturar = new javax.swing.JToggleButton();
         tbtnHome = new javax.swing.JToggleButton();
         lblFondo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +130,9 @@ public class Ventas extends javax.swing.JFrame {
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo de ventas.png"))); // NOI18N
         pnlPrincipal.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -130, 670, 570));
 
+        jLabel1.setText("jLabel1");
+        pnlPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -196,6 +201,7 @@ public class Ventas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblDescuento;
     private javax.swing.JLabel lblFondo;
