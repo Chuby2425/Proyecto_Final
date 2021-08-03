@@ -33,7 +33,8 @@ public class Ventas extends javax.swing.JFrame {
         
         
     }
-//fran se cago en medio proyecto 30/6/2021 
+//fran se cargo en medio proyecto 30/6/2021 
+    // fran se echo el github  2/8/2021  
     
        @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
