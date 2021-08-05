@@ -140,7 +140,7 @@ public class Ventas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblFac);
 
-        pnlPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 520, 120));
+        pnlPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 520, 90));
 
         btnCalcular.setText("Calcular ");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
