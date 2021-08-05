@@ -117,7 +117,7 @@ public class Ventas extends javax.swing.JFrame {
         lblCodigo.setForeground(new java.awt.Color(0, 255, 255));
         lblCodigo.setText("Codigo ");
         pnlPrincipal.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 60, -1));
-        pnlPrincipal.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 30, 20));
+        pnlPrincipal.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 40, -1));
 
         cbxProductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pnlPrincipal.add(cbxProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 110, -1));
@@ -210,7 +210,7 @@ public class Ventas extends javax.swing.JFrame {
         String productos = cbxProductos.getSelectedItem().toString();
         String precio = txtfPrecio.getText();
         String ptot = txtfPrecioTotal.getText();
-        
+                
         
         dato.setCodigo(codigo);
         dato.setCantidad(cantidad);
