@@ -33,8 +33,9 @@ public class Ventas extends javax.swing.JFrame {
         
         
     }
-//fran se cargo en medio proyecto 30/6/2021 
+    //fran se cargo en medio proyecto 30/6/2021 
     // fran se echo el github  2/8/2021  
+    // Fran se echo la pc ahora -_- y a empesar con toda la configuracion 4/8/2021
     
        @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -140,7 +141,7 @@ public class Ventas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblFac);
 
-        pnlPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 520, 90));
+        pnlPrincipal.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 550, 90));
 
         btnCalcular.setText("Calcular ");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
