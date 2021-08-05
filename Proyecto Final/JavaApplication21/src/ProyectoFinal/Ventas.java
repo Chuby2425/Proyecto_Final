@@ -4,6 +4,7 @@ package ProyectoFinal;
 import Clases.DatosFactura;
 import Lógica.txtfactura;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -154,10 +155,10 @@ public class Ventas extends javax.swing.JFrame {
                 btnCalcularActionPerformed(evt);
             }
         });
-        pnlPrincipal.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 90, 20));
+        pnlPrincipal.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 110, 30));
 
         lblSTotal.setForeground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.add(lblSTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 60, -1));
+        pnlPrincipal.add(lblSTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 60, 20));
 
         lblDes.setForeground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.add(lblDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 60, -1));
@@ -171,9 +172,14 @@ public class Ventas extends javax.swing.JFrame {
         pnlPrincipal.add(lblIVAm, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
 
         lblTot.setForeground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.add(lblTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, -1, -1));
+        pnlPrincipal.add(lblTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 80, 20));
 
         btnEliminar.setText("Eliminar Fila ");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
         pnlPrincipal.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         rbtnSinpe.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
@@ -192,11 +198,15 @@ public class Ventas extends javax.swing.JFrame {
         pnlPrincipal.add(rbtnEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 100, -1));
 
         btnBotonBorrar.setText("Reiniciar Tabla");
+        btnBotonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBotonBorrarActionPerformed(evt);
+            }
+        });
         pnlPrincipal.add(btnBotonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 350, 170, -1));
 
         btnPagar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnPagar.setText("Pagar");
-        btnPagar.setActionCommand("Pagar");
         pnlPrincipal.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 350, 90, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Prueba1.jpg"))); // NOI18N
@@ -224,18 +234,49 @@ public class Ventas extends javax.swing.JFrame {
         String productos = cbxProductos.getSelectedItem().toString();
         String precio = txtfPrecio.getText();
         String ptot = txtfPrecioTotal.getText();
-        double total = Double.parseDouble(cantidad)*Double.parseDouble(precio);
-        txtfPrecioTotal.setText(""+total);
-        double IVA = total * 0.13;
-        double Itotal = total+IVA;
-        lblSTotal.setText(""+Itotal);
-        double Des = Itotal -(Itotal * 0.04 / 100);
-        lblDes.setText(""+Des);
+        
+        int subtotal = Integer.parseInt(cantidad)*Integer.parseInt(precio);
+        
+        double IVA = subtotal * 0.13;
+        double preTot = subtotal + IVA;
+        
+        //descuentos segun el metodo de pago seleccionado (los decuentos son una prueba para ver si funcionan)
+        double descSinpe = preTot - (preTot * 0.04 / 100);
+        double descEfectivo = preTot - (preTot * 0.06 / 100);
+        double descTarjeta = preTot - (preTot * 0.08 / 100);
+        
+        double precioTotal = 0;
+        
+        if (rbtnSinpe.isSelected()) {
+            precioTotal = descSinpe;
+        }else if (rbtnEfectivo.isSelected()) {
+            precioTotal = descEfectivo;
+        }else if (rbtnTarjertas.isSelected()) {
+            precioTotal = descTarjeta;
+        }
+        
+        lblSTotal.setText(""+subtotal);
+        lblTot.setText(""+precioTotal);
+        
         dato.setCodigo(codigo);
         dato.setCantidad(cantidad);
         dato.setProductos(productos);
         dato.setPrecio(precio);
-        dato.setPrecioTotal(ptot);
+        dato.setPrecioTotal(""+precioTotal);
+        
+        //aquí se debería sumar las columnas pero esta dando problemas
+        /*double S = 0, tot;
+        String precioT = lblTot.getText();
+        double pT = Double.parseDouble(precioT);
+        
+        for (int i = 0; i < tblFac.getRowCount(); i++) {
+            S = S + Double.parseDouble(mdlTabla.getValueAt(i, 4).toString());        
+        }
+        tot = pT += S;
+        lblTot.setText(""+tot);
+        */
+        
+        
         
         
         fac.guardar(dato);
@@ -248,6 +289,25 @@ public class Ventas extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        /*int fila = tblFac.getSelectedRow();
+        if (fila>=0) {
+            mdlTabla.removeRow(fila);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Seleccione una fila");
+        }
+        */
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnBotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBotonBorrarActionPerformed
+        // TODO add your handling code here:
+        /*int fila = tblFac.getSelectedRowCount();
+        for (int i = fila-1; i < 10; i--) {
+            mdlTabla.removeRow(i);
+        }
+        */
+    }//GEN-LAST:event_btnBotonBorrarActionPerformed
 
     /**
      * @param args the command line arguments
