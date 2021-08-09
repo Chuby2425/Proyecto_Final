@@ -3,7 +3,12 @@
 //Prueba 2.0
 //Prueba 2.1
 //prueba 2.2
+
+
 package ProyectoFinal;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /*import java.text.SimpleDateFormat;
 import java.util.Date;*/
@@ -12,25 +17,24 @@ import java.util.Date;*/
  *
  * @author jeiso
  */
-public class ProyectoFinal extends javax.swing.JFrame {
+public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
+    String hora, minutos;
+    Thread hilo;
 
-   //variables 
-    
-/*String hora,minuto,segundo;
-Thread hilo;
-    
-
-    
-
-     * Creates new form ProyectoFinal
-     */
+    public static String fecha(){
+        Date fecha = new Date();
+        SimpleDateFormat formatofecha = new SimpleDateFormat("dd/MM/YYYY");
+        return formatofecha.format(fecha);
+    }
     public ProyectoFinal() {
         initComponents();
         //Lo hizo antes de hacer el menu desplegable 
         this.setLocationRelativeTo(this);
         this.rsbtnMenu.setSelected(true);
-        
-        
+        lblFecha.setText(fecha());
+        hilo = new Thread(this);
+        hilo.start();
+        setVisible(true);
         
             
         //Fecha del sistema 
@@ -41,6 +45,26 @@ Thread hilo;
         this.fecha.setText(formato.format(sistFecha));
         */
         
+    }
+    public void hora(){
+        Calendar calendario = new GregorianCalendar();
+        Date horaactual = new Date();
+        calendario.setTime(horaactual);
+        hora=calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get
+        (Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);
+        minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get
+        (Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
+        //segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get
+        //(Calendar.SECOND):"0"+calendario.get(Calendar.MINUTE);
+    }
+    
+    public void run(){
+        Thread current = Thread.currentThread();
+        
+        while (current==hilo){
+            hora();
+            lblHora.setText(hora+":"+minutos);
+        }
     }
 
     /**
@@ -58,6 +82,8 @@ Thread hilo;
         rsbtnMenu = new rsbuttom.RSButtonMetro();
         rSButtonMetro5 = new rsbuttom.RSButtonMetro();
         lblTitulo = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
+        lblHora = new javax.swing.JLabel();
         panelLateral_I = new javax.swing.JPanel();
         rSbtnProductos = new rsbuttom.RSButtonMetro();
         rSbtnhome = new rsbuttom.RSButtonMetro();
@@ -101,6 +127,14 @@ Thread hilo;
         lblTitulo.setForeground(new java.awt.Color(0, 255, 255));
         lblTitulo.setText("INTER THINK");
 
+        lblFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(0, 255, 255));
+        lblFecha.setText("DD/MM/YYYY");
+
+        lblHora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblHora.setForeground(new java.awt.Color(0, 255, 255));
+        lblHora.setText("00:00");
+
         javax.swing.GroupLayout PanelSuperiorLayout = new javax.swing.GroupLayout(PanelSuperior);
         PanelSuperior.setLayout(PanelSuperiorLayout);
         PanelSuperiorLayout.setHorizontalGroup(
@@ -110,18 +144,24 @@ Thread hilo;
                 .addComponent(rsbtnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 424, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
                 .addComponent(rSButtonMetro5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(200, 200, 200))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblFecha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblHora, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
         );
         PanelSuperiorLayout.setVerticalGroup(
             PanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(rsbtnMenu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelSuperiorLayout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(PanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblTitulo)
-                    .addComponent(rSButtonMetro5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rSButtonMetro5, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(lblFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -144,7 +184,7 @@ Thread hilo;
                 rSbtnProductosActionPerformed(evt);
             }
         });
-        panelLateral_I.add(rSbtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 118, 50));
+        panelLateral_I.add(rSbtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 118, 50));
 
         rSbtnhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home (1).png"))); // NOI18N
         rSbtnhome.setText("Inicio");
@@ -180,7 +220,7 @@ Thread hilo;
                 rSbtnventas1ActionPerformed(evt);
             }
         });
-        panelLateral_I.add(rSbtnventas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 118, 50));
+        panelLateral_I.add(rSbtnventas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 118, 50));
 
         rSbtnPower.setBackground(new java.awt.Color(0, 0, 0));
         rSbtnPower.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pngwing.com.png"))); // NOI18N
@@ -307,6 +347,7 @@ Thread hilo;
 
     private void rSbtnPowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnPowerActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_rSbtnPowerActionPerformed
 
     private void rSbtnhome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnhome1ActionPerformed
@@ -358,6 +399,8 @@ Thread hilo;
     private javax.swing.JPanel PanelSuperior;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panelLateral_I;
     private rsbuttom.RSButtonMetro rSButtonMetro5;
