@@ -1,18 +1,19 @@
-
 package Clases;
 
 public class DatosReporte {
-    
-    private String cantidad, preciouni,subtotal,fecha;
-  
-    public DatosReporte(String cantidad, String productos, String preciouni, String subtotal, String fecha) {
+
+    private String fecha, cantidad, preciouni, subtotal;
+
+    public DatosReporte(String cantidad, String productos, String preciouni, String subtotal, String fecha,String rutaImagen) {
+        
+       
+        this.fecha = fecha;
         this.cantidad = cantidad;
         this.preciouni = preciouni;
         this.subtotal = subtotal;
-        this.fecha = fecha;
-     }
-    
-    
+
+    }
+
     public String getFecha() {
         return fecha;
     }
@@ -20,7 +21,6 @@ public class DatosReporte {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
-    
 
     public String getCantidad() {
         return cantidad;
@@ -30,7 +30,6 @@ public class DatosReporte {
         this.cantidad = cantidad;
     }
 
-   
     public String getPreciouni() {
         return preciouni;
     }
@@ -46,7 +45,5 @@ public class DatosReporte {
     public void setSubtotal(String subtotal) {
         this.subtotal = subtotal;
     }
-    
-    
-    
+
 }

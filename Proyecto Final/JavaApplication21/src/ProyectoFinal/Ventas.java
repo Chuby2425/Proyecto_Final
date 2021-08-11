@@ -6,14 +6,23 @@ import Lógica.txtfactura;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import Clases.DatosReporte;
+import Lógica.Reportes;
+import java.util.Date;
 
 
 public class Ventas extends javax.swing.JFrame {
-
+    
+    
+// esto es para el txt de ventas 
     DatosFactura dato = new DatosFactura();
     txtfactura fac = new txtfactura();
     DefaultTableModel mdlTabla;
     Vector vcabeceras = new Vector();
+    
+    // apartado de reportes 
+    ArrayList<DatosReporte> FacturaR;
     
     
     
@@ -21,22 +30,33 @@ public class Ventas extends javax.swing.JFrame {
     public Ventas() {
         initComponents();
         
+        // apartado txt
         vcabeceras.addElement("Codigo");
         vcabeceras.addElement("Cantidad");
         vcabeceras.addElement("Productos");
         vcabeceras.addElement("Precio");
         vcabeceras.addElement("P.Total");
-        
         mdlTabla = new DefaultTableModel(vcabeceras,0);
         tblFac.setModel(mdlTabla);
         tblFac.setModel(fac.listaProductos());
         
         
+        // esto es para los reportes 
+        FacturaR = new ArrayList<DatosReporte>();
+        
+        
+        
+        
         
     }
+    
+    
     //fran se cargo en medio proyecto 30/6/2021 
     // fran se echo el github  2/8/2021  
     // Fran se echo la pc ahora -_- y a empesar con toda la configuracion 4/8/2021
+    
+    
+    
     
        @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -207,6 +227,11 @@ public class Ventas extends javax.swing.JFrame {
 
         btnPagar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnPagar.setText("Pagar");
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
         pnlPrincipal.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 350, 90, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Prueba1.jpg"))); // NOI18N
@@ -265,6 +290,8 @@ public class Ventas extends javax.swing.JFrame {
         dato.setPrecioTotal(""+precioTotal);
         
         //aquí se debería sumar las columnas pero esta dando problemas
+        // ??????????????
+        
         /*double S = 0, tot;
         String precioT = lblTot.getText();
         double pT = Double.parseDouble(precioT);
@@ -308,6 +335,17 @@ public class Ventas extends javax.swing.JFrame {
         }
         */
     }//GEN-LAST:event_btnBotonBorrarActionPerformed
+
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+    
+        //Reportes mas imagen 
+        Reportes Facturacion = new Reportes(lblFactura.getText(),
+                new Date().toString(),
+                FacturaR,
+                "J:\\Documentos\\Universidad\\Programacion de computadoras 1\\Repositorios\\Proyecto_Final\\Proyecto Final\\JavaApplication21\\src\\Iconos\\Logo F.png");
+        Facturacion.crearReportes();
+        
+    }//GEN-LAST:event_btnPagarActionPerformed
 
     /**
      * @param args the command line arguments
