@@ -24,18 +24,18 @@ public class Reportes {
     Paragraph titulo,
             ubicacion,
             codigoPostal;
-
+                 
     public Reportes(String nombreEmpresa, String Fecha, ArrayList<DatosReporte> productos, String rutaImagen) {
         this.nombreEmpresa = nombreEmpresa;
         this.rutaImagen = rutaImagen;
         this.Fecha = Fecha;
         this.productos = productos;
-
+        
         documento = new Document();
         titulo = new Paragraph("REPORTE DE VENTAS ");
         ubicacion = new Paragraph("Ubicacion: San José,Puriscal,Santiago");
         codigoPostal = new Paragraph("Codigo Postal: 10401");
-
+       
     }
 
     public Reportes() {
@@ -57,7 +57,7 @@ public class Reportes {
             ubicacion.setAlignment(Element.ALIGN_LEFT);
             documento.add(Chunk.NEWLINE);
             codigoPostal.setAlignment(Element.ALIGN_LEFT);
-
+           
             // para agregar imagenes y darle posicion 
             Image imagen = null;
 
