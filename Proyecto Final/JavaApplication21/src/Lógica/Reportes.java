@@ -27,12 +27,13 @@ public class Reportes {
             paginaWeb
             ;
 
+
     public Reportes(String nombreEmpresa, String Fecha, ArrayList<DatosReporte> productos, String rutaImagen) {
         this.nombreEmpresa = nombreEmpresa;
         this.rutaImagen = rutaImagen;
         this.Fecha = Fecha;
         this.productos = productos;
-
+        
         documento = new Document();
         titulo = new Paragraph("REPORTE DE VENTAS ");
         ubicacion = new Paragraph("Ubicacion: San José,Puriscal,Santiago");
@@ -62,6 +63,7 @@ public class Reportes {
             documento.add(Chunk.NEWLINE);
             codigoPostal.setAlignment(Element.ALIGN_LEFT);
             paginaWeb.setAlignment(Element.ALIGN_LEFT);
+
             // para agregar imagenes y darle posicion 
             Image imagen = null;
 
