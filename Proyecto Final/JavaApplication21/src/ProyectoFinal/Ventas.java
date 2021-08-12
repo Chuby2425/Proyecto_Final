@@ -338,7 +338,7 @@ public class Ventas extends javax.swing.JFrame {
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
     
-        //Reportes mas imagen 
+        //Reportes mas imagen .
         Reportes Facturacion = new Reportes(lblFactura.getText(),
                 new Date().toString(),
                 FacturaR,
