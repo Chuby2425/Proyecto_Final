@@ -23,8 +23,11 @@ public class Reportes {
     FileOutputStream archivo;
     Paragraph titulo,
             ubicacion,
-            codigoPostal;
-                 
+            codigoPostal,
+            paginaWeb
+            ;
+
+
     public Reportes(String nombreEmpresa, String Fecha, ArrayList<DatosReporte> productos, String rutaImagen) {
         this.nombreEmpresa = nombreEmpresa;
         this.rutaImagen = rutaImagen;
@@ -35,7 +38,9 @@ public class Reportes {
         titulo = new Paragraph("REPORTE DE VENTAS ");
         ubicacion = new Paragraph("Ubicacion: San José,Puriscal,Santiago");
         codigoPostal = new Paragraph("Codigo Postal: 10401");
-       
+        paginaWeb = new Paragraph("La pagina web esta funcionando androides ");
+        
+
     }
 
     public Reportes() {
@@ -57,7 +62,8 @@ public class Reportes {
             ubicacion.setAlignment(Element.ALIGN_LEFT);
             documento.add(Chunk.NEWLINE);
             codigoPostal.setAlignment(Element.ALIGN_LEFT);
-           
+            paginaWeb.setAlignment(Element.ALIGN_LEFT);
+
             // para agregar imagenes y darle posicion 
             Image imagen = null;
 
@@ -73,6 +79,7 @@ public class Reportes {
             documento.add(titulo);
             documento.add(ubicacion);
             documento.add(codigoPostal);
+            documento.add(paginaWeb);
             documento.close();
             JOptionPane.showMessageDialog(null, "El reporte se a generado -_-");
 
