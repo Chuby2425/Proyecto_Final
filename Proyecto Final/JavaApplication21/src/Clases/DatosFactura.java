@@ -8,7 +8,7 @@ public class DatosFactura {
     private String cantidad;
     private String precioTotal;
 
-    public DatosFactura(String codigo, String productos, String precio, String cantidad, String precioTotal) {
+    /*public DatosFactura(String codigo, String productos, String precio, String cantidad, String precioTotal) {
         this.codigo = codigo;
         this.producto = productos;
         this.precio = precio;
@@ -16,7 +16,7 @@ public class DatosFactura {
         this.precioTotal = precioTotal;
         
     }
-
+*/
     public DatosFactura() {
     }
 

@@ -1,4 +1,3 @@
-
 package ProyectoFinal;
 
 import Clases.DatosFactura;
@@ -9,56 +8,61 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import Clases.DatosReporte;
 import Lógica.Reportes;
+import Lógica.facturaA;
 import java.util.Date;
 
-
 public class Ventas extends javax.swing.JFrame {
-    
-    
-// esto es para el txt de ventas 
-    DatosFactura dato = new DatosFactura();
-    txtfactura fac = new txtfactura();
-    DefaultTableModel mdlTabla;
-    Vector vcabeceras = new Vector();
-    
+
+    DefaultTableModel mdlTabla = new DefaultTableModel();
+
     // apartado de reportes 
     ArrayList<DatosReporte> FacturaR;
-    
-    
-    
-    
+
+    //Tabla
     public Ventas() {
         initComponents();
-        
-        // apartado txt
-        vcabeceras.addElement("Codigo");
-        vcabeceras.addElement("Cantidad");
-        vcabeceras.addElement("Productos");
-        vcabeceras.addElement("Precio");
-        vcabeceras.addElement("P.Total");
-        mdlTabla = new DefaultTableModel(vcabeceras,0);
+
         tblFac.setModel(mdlTabla);
-        tblFac.setModel(fac.listaProductos());
-        
-        
+        mdlTabla.addColumn("Codigo");
+        mdlTabla.addColumn("Cantidad");
+        mdlTabla.addColumn("Productos");
+        mdlTabla.addColumn("Precio");
+        mdlTabla.addColumn("P.Total");
+
         // esto es para los reportes 
         FacturaR = new ArrayList<DatosReporte>();
-        
-        
-        
-        
-        
+
+        cargarTabla();
+
     }
-    
-    
+
+    //Metodo de cargar 
+    public void cargarTabla() {
+        mdlTabla.setRowCount(0);
+        for (int i = 0; i < facturaA.datosF.size(); i++) {
+            mdlTabla.addRow(new Object[]{
+                facturaA.datosF.get(i).getCodigo(),
+                facturaA.datosF.get(i).getCantidad(),
+                facturaA.datosF.get(i).getProductos(),
+                facturaA.datosF.get(i).getPrecio(),
+                facturaA.datosF.get(i).getPrecioTotal()});
+
+        }
+    }
+
+    public void limpiar() {
+        txtCodigo.setText("");
+        txtfCantidad.setText("");
+        cbxProductos.setSelectedItem("");
+        txtfPrecio.setText("");
+        txtfPrecioTotal.setText("");
+    }
+
     //fran se cargo en medio proyecto 30/6/2021 
     // fran se echo el github  2/8/2021  
     // Fran se echo la pc ahora -_- y a empesar con toda la configuracion 4/8/2021
-    
-    
-    
-    
-       @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -181,7 +185,7 @@ public class Ventas extends javax.swing.JFrame {
         pnlPrincipal.add(lblSTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 60, 20));
 
         lblDes.setForeground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.add(lblDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 60, -1));
+        pnlPrincipal.add(lblDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 60, 20));
 
         lblIVA.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblIVA.setForeground(new java.awt.Color(0, 255, 255));
@@ -189,7 +193,7 @@ public class Ventas extends javax.swing.JFrame {
         pnlPrincipal.add(lblIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
 
         lblIVAm.setForeground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.add(lblIVAm, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
+        pnlPrincipal.add(lblIVAm, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 50, 20));
 
         lblTot.setForeground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.add(lblTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 80, 20));
@@ -250,81 +254,84 @@ public class Ventas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+       //Boton de calcular 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-       //Esto es para hacer el boton de calcular del txt
-       
+        //Esto es para hacer el boton de calcular en tabla
+
         String codigo = txtCodigo.getText();
         String cantidad = txtfCantidad.getText();
         String productos = cbxProductos.getSelectedItem().toString();
         String precio = txtfPrecio.getText();
         String ptot = txtfPrecioTotal.getText();
-        
-        int subtotal = Integer.parseInt(cantidad)*Integer.parseInt(precio);
-        
+
+        int subtotal = Integer.parseInt(cantidad) * Integer.parseInt(precio);
         double IVA = subtotal * 0.13;
         double preTot = subtotal + IVA;
-        
+
         //descuentos segun el metodo de pago seleccionado (los decuentos son una prueba para ver si funcionan)
         double descSinpe = preTot - (preTot * 0.04 / 100);
         double descEfectivo = preTot - (preTot * 0.06 / 100);
         double descTarjeta = preTot - (preTot * 0.08 / 100);
-        
+
         double precioTotal = 0;
-        
+
         if (rbtnSinpe.isSelected()) {
             precioTotal = descSinpe;
-        }else if (rbtnEfectivo.isSelected()) {
+            lblDes.setText("" + descSinpe);
+
+        } else if (rbtnEfectivo.isSelected()) {
             precioTotal = descEfectivo;
-        }else if (rbtnTarjertas.isSelected()) {
+            lblDes.setText("" + descEfectivo);
+        } else if (rbtnTarjertas.isSelected()) {
             precioTotal = descTarjeta;
+            lblDes.setText("" + descTarjeta);
         }
-        
-        lblSTotal.setText(""+subtotal);
-        lblTot.setText(""+precioTotal);
-        
+
+        String odes = lblDes.getText();
+
+        lblSTotal.setText("" + subtotal);
+        lblDes.setText("" + odes);
+        lblIVAm.setText("" + IVA);
+        lblTot.setText("" + precioTotal);
+
+        // esto es para la tabla de ventas 
+        DatosFactura dato = new DatosFactura();
+
         dato.setCodigo(codigo);
         dato.setCantidad(cantidad);
         dato.setProductos(productos);
         dato.setPrecio(precio);
-        dato.setPrecioTotal(""+precioTotal);
-        
+        dato.setPrecioTotal("" + precioTotal);
+        facturaA.datosF.add(dato);
+
         //aquí se debería sumar las columnas pero esta dando problemas
         // ??????????????
-        
-        /*double S = 0, tot;
+        double S = 0, tot;
         String precioT = lblTot.getText();
         double pT = Double.parseDouble(precioT);
-        
+
         for (int i = 0; i < tblFac.getRowCount(); i++) {
-            S = S + Double.parseDouble(mdlTabla.getValueAt(i, 4).toString());        
+            S = S + Double.parseDouble(mdlTabla.getValueAt(i, 4).toString());
         }
         tot = pT += S;
-        lblTot.setText(""+tot);
-        */
-        
-        
-        
-        
-        fac.guardar(dato);
-        fac.guardarArchivo(dato);
-        
-        
-        tblFac.setModel(fac.listaProductos());
-        
-        
-        
-        
+        lblTot.setText("" + tot);
+
+        cargarTabla();
+        limpiar();
+
+
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        /*int fila = tblFac.getSelectedRow();
-        if (fila>=0) {
+
+        //Para eliminar las filas 
+        int fila = tblFac.getSelectedRow();
+        if (fila >= 0) {
             mdlTabla.removeRow(fila);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Seleccione una fila");
         }
-        */
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBotonBorrarActionPerformed
@@ -333,18 +340,38 @@ public class Ventas extends javax.swing.JFrame {
         for (int i = fila-1; i < 10; i--) {
             mdlTabla.removeRow(i);
         }
-        */
+         */
     }//GEN-LAST:event_btnBotonBorrarActionPerformed
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
-    
+
         //Reportes mas imagen 
         Reportes Facturacion = new Reportes(lblFactura.getText(),
                 new Date().toString(),
                 FacturaR,
                 "J:\\Documentos\\Universidad\\Programacion de computadoras 1\\Repositorios\\Proyecto_Final\\Proyecto Final\\JavaApplication21\\src\\Iconos\\Logo F.png");
+
+        // Creacion de tabla reportes
+        DatosReporte produc = new DatosReporte();
+
+        produc.setcodigo(txtCodigo.getText());
+        produc.setCantidad(txtfCantidad.getText());
+        //productos.setcodigo(cbxProductos.);
+        produc.setPreciouni(txtfPrecio.getText());
+        produc.setpretotal(txtfPrecioTotal.getText());
+
+        FacturaR.add(produc);
+        mdlTabla.addRow(new Object[]{
+            produc.getcodigo(),
+            produc.getCantidad(),
+            produc.getproducto(),
+            produc.getPreciouni(),
+            produc.getpretotal()
+
+        });
+
         Facturacion.crearReportes();
-        
+
     }//GEN-LAST:event_btnPagarActionPerformed
 
     /**

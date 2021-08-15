@@ -2,24 +2,27 @@ package Clases;
 
 public class DatosReporte {
 
-    private String fecha, cantidad, preciouni, subtotal;
+    private String codigo, cantidad, producto, preciouni, pretotal;
 
-    public DatosReporte(String cantidad, String productos, String preciouni, String subtotal, String fecha,String rutaImagen) {
-        
-       
-        this.fecha = fecha;
+    public DatosReporte(String codigo, String cantidad, String producto, String preciouni, String pretotal) {
+
+        this.codigo = codigo;
         this.cantidad = cantidad;
+        this.producto = producto;
         this.preciouni = preciouni;
-        this.subtotal = subtotal;
+        this.pretotal = pretotal;
 
     }
 
-    public String getFecha() {
-        return fecha;
+    public DatosReporte() {
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public String getcodigo() {
+        return codigo;
+    }
+
+    public void setcodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getCantidad() {
@@ -30,6 +33,14 @@ public class DatosReporte {
         this.cantidad = cantidad;
     }
 
+    public String getproducto() {
+        return producto;
+    }
+
+    public void setproducto(String codigo) {
+        this.producto = producto;
+    }
+
     public String getPreciouni() {
         return preciouni;
     }
@@ -38,12 +49,12 @@ public class DatosReporte {
         this.preciouni = preciouni;
     }
 
-    public String getSubtotal() {
-        return subtotal;
+    public String getpretotal() {
+        return pretotal;
     }
 
-    public void setSubtotal(String subtotal) {
-        this.subtotal = subtotal;
+    public void setpretotal(String subtotal) {
+        this.pretotal = subtotal;
     }
 
 }
