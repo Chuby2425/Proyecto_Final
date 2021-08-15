@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-              <Component id="PanelPrincipal" pref="969" max="32767" attributes="0"/>
+              <Component id="PanelPrincipal" pref="1008" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,16 +52,11 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="PanelSuperior" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="panelLateral_I" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Lbl_Imagen_central" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+              <Component id="PanelSuperior" max="32767" attributes="0"/>
+              <Component id="panelLateral_I" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
+                  <Component id="Lbl_Imagen_central" min="-2" pref="880" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -71,7 +66,7 @@
                   <Component id="PanelSuperior" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelLateral_I" min="-2" max="-2" attributes="0"/>
-                      <Component id="Lbl_Imagen_central" pref="0" max="32767" attributes="0"/>
+                      <Component id="Lbl_Imagen_central" min="-2" pref="700" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -100,7 +95,7 @@
                       <Component id="rsbtnMenu" min="-2" pref="85" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="382" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="rSButtonMetro5" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblFecha" min="-2" max="-2" attributes="0"/>
@@ -354,7 +349,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="40" y="540" width="40" height="40"/>
+                  <AbsoluteConstraints x="40" y="630" width="40" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>

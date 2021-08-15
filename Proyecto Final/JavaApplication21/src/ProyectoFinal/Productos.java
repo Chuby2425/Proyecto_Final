@@ -55,6 +55,7 @@ public class Productos extends javax.swing.JFrame {
         lblBuscarProducto = new javax.swing.JLabel();
         lblBusquedaporCodigo = new javax.swing.JLabel();
         btnBuscarProducto = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -320,6 +321,14 @@ public class Productos extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 354, -1, -1));
 
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 660, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo de productos.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 940, 680));
 
@@ -356,6 +365,13 @@ public class Productos extends javax.swing.JFrame {
     private void txtPreciodelProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPreciodelProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPreciodelProductoActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        // TODO add your handling code here:
+        ProyectoFinal pf = new ProyectoFinal();
+        pf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -397,6 +413,7 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscarProducto;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminarProducto;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -95,6 +95,7 @@ public class Ventas extends javax.swing.JFrame {
         rbtnEfectivo = new javax.swing.JRadioButton();
         btnBotonBorrar = new javax.swing.JButton();
         btnPagar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,12 +130,12 @@ public class Ventas extends javax.swing.JFrame {
         pnlPrincipal.add(txtfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 100, -1));
         pnlPrincipal.add(txtfPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 100, -1));
 
-        lblSubTotal.setFont(new java.awt.Font("Perpetua", 3, 14)); // NOI18N
+        lblSubTotal.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblSubTotal.setForeground(new java.awt.Color(0, 255, 255));
         lblSubTotal.setText("Sub Total");
-        pnlPrincipal.add(lblSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+        pnlPrincipal.add(lblSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 70, -1));
 
-        lblDescuento.setFont(new java.awt.Font("Perpetua", 3, 14)); // NOI18N
+        lblDescuento.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblDescuento.setForeground(new java.awt.Color(0, 255, 255));
         lblDescuento.setText("Descuento");
         pnlPrincipal.add(lblDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
@@ -181,9 +182,11 @@ public class Ventas extends javax.swing.JFrame {
         });
         pnlPrincipal.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 110, 30));
 
+        lblSTotal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblSTotal.setForeground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.add(lblSTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 60, 20));
 
+        lblDes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblDes.setForeground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.add(lblDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 60, 20));
 
@@ -192,9 +195,11 @@ public class Ventas extends javax.swing.JFrame {
         lblIVA.setText("I.V.A");
         pnlPrincipal.add(lblIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
 
+        lblIVAm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblIVAm.setForeground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.add(lblIVAm, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 50, 20));
 
+        lblTot.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblTot.setForeground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.add(lblTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 80, 20));
 
@@ -209,17 +214,17 @@ public class Ventas extends javax.swing.JFrame {
         rbtnSinpe.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         rbtnSinpe.setForeground(new java.awt.Color(0, 255, 255));
         rbtnSinpe.setText("Sinpe Movil");
-        pnlPrincipal.add(rbtnSinpe, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 120, -1));
+        pnlPrincipal.add(rbtnSinpe, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 120, -1));
 
         rbtnTarjertas.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         rbtnTarjertas.setForeground(new java.awt.Color(0, 255, 255));
         rbtnTarjertas.setText("Tarjertas");
-        pnlPrincipal.add(rbtnTarjertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 100, -1));
+        pnlPrincipal.add(rbtnTarjertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 100, -1));
 
         rbtnEfectivo.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         rbtnEfectivo.setForeground(new java.awt.Color(0, 255, 255));
         rbtnEfectivo.setText("Efectivo");
-        pnlPrincipal.add(rbtnEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 100, -1));
+        pnlPrincipal.add(rbtnEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 100, -1));
 
         btnBotonBorrar.setText("Reiniciar Tabla");
         btnBotonBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +241,15 @@ public class Ventas extends javax.swing.JFrame {
                 btnPagarActionPerformed(evt);
             }
         });
-        pnlPrincipal.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 350, 90, -1));
+        pnlPrincipal.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 90, -1));
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+        pnlPrincipal.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 70, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Prueba1.jpg"))); // NOI18N
         pnlPrincipal.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 490));
@@ -268,7 +281,7 @@ public class Ventas extends javax.swing.JFrame {
         double IVA = subtotal * 0.13;
         double preTot = subtotal + IVA;
 
-        //descuentos segun el metodo de pago seleccionado (los decuentos son una prueba para ver si funcionan)
+        //descuentos segun el metodo de pago seleccionado 
         double descSinpe = preTot - (preTot * 0.04 / 100);
         double descEfectivo = preTot - (preTot * 0.06 / 100);
         double descTarjeta = preTot - (preTot * 0.08 / 100);
@@ -278,7 +291,6 @@ public class Ventas extends javax.swing.JFrame {
         if (rbtnSinpe.isSelected()) {
             precioTotal = descSinpe;
             lblDes.setText("" + descSinpe);
-
         } else if (rbtnEfectivo.isSelected()) {
             precioTotal = descEfectivo;
             lblDes.setText("" + descEfectivo);
@@ -304,8 +316,7 @@ public class Ventas extends javax.swing.JFrame {
         dato.setPrecioTotal("" + precioTotal);
         facturaA.datosF.add(dato);
 
-        //aquí se debería sumar las columnas pero esta dando problemas
-        // ??????????????
+        //se hace la suma de la columna de precio total
         double S = 0, tot;
         String precioT = lblTot.getText();
         double pT = Double.parseDouble(precioT);
@@ -323,7 +334,6 @@ public class Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
         //Para eliminar las filas 
         int fila = tblFac.getSelectedRow();
         if (fila >= 0) {
@@ -335,12 +345,11 @@ public class Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBotonBorrarActionPerformed
-        // TODO add your handling code here:
-        /*int fila = tblFac.getSelectedRowCount();
-        for (int i = fila-1; i < 10; i--) {
+        // borrar toda la tabla
+        int fila = tblFac.getRowCount();
+        for (int i = fila-1; i >= 0; i--) {
             mdlTabla.removeRow(i);
         }
-         */
     }//GEN-LAST:event_btnBotonBorrarActionPerformed
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
@@ -373,6 +382,13 @@ public class Ventas extends javax.swing.JFrame {
         Facturacion.crearReportes();
 
     }//GEN-LAST:event_btnPagarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        // TODO add your handling code here:
+        ProyectoFinal pf = new ProyectoFinal();
+        pf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,6 +430,7 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnPagar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cbxProductos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidad;
