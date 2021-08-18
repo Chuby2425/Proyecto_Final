@@ -1,7 +1,6 @@
 package ProyectoFinal;
 
 import Clases.DatosFactura;
-import Lógica.txtfactura;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -213,7 +212,7 @@ public class Ventas extends javax.swing.JFrame {
 
         rbtnSinpe.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         rbtnSinpe.setForeground(new java.awt.Color(0, 255, 255));
-        rbtnSinpe.setText("Sinpe Movil");
+        rbtnSinpe.setText("SINPE Movil");
         pnlPrincipal.add(rbtnSinpe, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 120, -1));
 
         rbtnTarjertas.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N

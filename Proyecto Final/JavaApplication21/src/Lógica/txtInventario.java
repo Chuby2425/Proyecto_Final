@@ -2,7 +2,7 @@
 package Lógica;
 
 import java.util.Vector;
-import Clases.DatosFactura;
+import Clases.DatosInventario;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -13,27 +13,27 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class txtfactura {
+public class txtInventario {
     
     Vector vprincipal = new Vector();
     
     //Procedimiento para guardar en un vector 
-    public void guardar (DatosFactura unDatosFactura){
-        vprincipal.addElement(unDatosFactura);
+    public void guardar (DatosInventario unDatosInventario){
+        vprincipal.addElement(unDatosInventario);
         
     }
     //asi se guarda en un archivo txt
-    public void guardarArchivo(DatosFactura datos){
+    public void guardarArchivo(DatosInventario datos){
         
         try {
-            FileWriter fw = new FileWriter("Productos.txt",true);
+            FileWriter fw = new FileWriter("Inventarios.txt",true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             pw.print(datos.getCodigo());
-            pw.print("|"+datos.getProductos());
+            pw.print("|"+datos.getNombre());
             pw.print("|"+datos.getCantidad());
-            pw.print("|"+datos.getPrecio());
-            pw.println("|"+datos.getPrecioTotal());
+            pw.print("|"+datos.getPrecioInterno());
+            pw.println("|"+datos.getPrecioVenta());
             pw.close();
             
         } catch (Exception e) {
@@ -46,20 +46,20 @@ public class txtfactura {
     public DefaultTableModel listaProductos(){
         Vector cabeceras = new Vector();
         cabeceras.addElement("Codigo");
-        cabeceras.addElement("Productos");
+        cabeceras.addElement("Nombre");
         cabeceras.addElement("Cantidad");
-        cabeceras.addElement("Precio");
-        cabeceras.addElement("P.Total");
+        cabeceras.addElement("Precio Interno");
+        cabeceras.addElement("Precio de Venta");
         
         
         // Creamos el vector que contenga los datos
         // Creamos el modelo de tabla para agregarel vector, en la ubicacion 0
         
-        DefaultTableModel mdlTabla = new DefaultTableModel(cabeceras,0);
+        DefaultTableModel mdlTablaInv = new DefaultTableModel(cabeceras,0);
         
         try {
             
-            FileReader fr = new FileReader("Productos.txt");
+            FileReader fr = new FileReader("Inventarios.txt");
             BufferedReader br = new BufferedReader(fr);
             String d;
             while((d=br.readLine()) !=null){
@@ -68,7 +68,7 @@ public class txtfactura {
                 while(dato.hasMoreTokens()){
                     x.addElement(dato.nextToken());      
                 }
-                mdlTabla.addRow(x);
+                mdlTablaInv.addRow(x);
             }
             
         } catch (Exception e) {
@@ -77,7 +77,7 @@ public class txtfactura {
             
         }
         
-      return mdlTabla;  
+      return mdlTablaInv;  
         
     }
         
