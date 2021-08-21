@@ -244,6 +244,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSButtonInventario.setText("Inventario");
         rSButtonInventario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSButtonInventario.setIconTextGap(6);
+        rSButtonInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonInventarioActionPerformed(evt);
+            }
+        });
         panelLateral_I.add(rSButtonInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 118, 50));
 
         rSButtonReportes.setBackground(new java.awt.Color(0, 0, 0));
@@ -376,6 +381,10 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
     private void rSbtnventas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnventas2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rSbtnventas2ActionPerformed
+
+    private void rSButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonInventarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonInventarioActionPerformed
 
     /**
      * @param args the command line arguments

@@ -17,6 +17,10 @@ public class Productos extends javax.swing.JFrame {
 
     }
 
+    Productos(Inventarios aThis, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
   
 
     public void limpiar() {
@@ -286,4 +290,24 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrecioInterno;
     private javax.swing.JTextField txtPrecioVenta;
     // End of variables declaration//GEN-END:variables
+    public String getCodigo(){
+        return codigo;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public String getCantidad(){
+        return cantidad;
+    }   
+    public String getPInterno(){
+        return precioInterno;
+    }
+    public String getPVenta(){
+        return precioVenta;
+    }
+    public boolean getEstado(){
+        return edo;
+    }
 }

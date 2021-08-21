@@ -5,6 +5,15 @@
  */
 package ProyectoFinal;
 
+import java.awt.TextArea;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author jeiso
@@ -31,10 +40,10 @@ public class Inventarios extends javax.swing.JFrame {
         btnAgregarP = new javax.swing.JButton();
         btnVerP = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        tblInven = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         lblProductosM = new javax.swing.JLabel();
         lblCantidadP = new javax.swing.JLabel();
+        textArea = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,31 +58,27 @@ public class Inventarios extends javax.swing.JFrame {
         pnlPrincipal.add(btnAgregarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
 
         btnVerP.setText("Ver Producto ");
+        btnVerP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerPActionPerformed(evt);
+            }
+        });
         pnlPrincipal.add(btnVerP, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
 
         btnSalir.setText("Salir");
         pnlPrincipal.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, -1, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        tblInven.setViewportView(jTable1);
-
-        pnlPrincipal.add(tblInven, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 110));
 
         lblProductosM.setText("#Productos");
         pnlPrincipal.add(lblProductosM, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, -1, -1));
 
         lblCantidadP.setText("0");
         pnlPrincipal.add(lblCantidadP, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        textArea.setViewportView(jTextArea1);
+
+        pnlPrincipal.add(textArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 410, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,7 +96,38 @@ public class Inventarios extends javax.swing.JFrame {
 
     private void btnAgregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPActionPerformed
         // TODO add your handling code here:
+        Productos np = new Productos(this,true);
+        np.setLocationRelativeTo(null);
+        np.setVisible(true);
+        if (np.getEstado()) {
+            try {
+                FileWriter fw = new FileWriter("Inventarios.txt",true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.write(np.getCodigo()+" , "+np.getNombre()+" , "+np.getCantidad()+" , "+np.getPInterno()+" , "+np.getPVenta()+"/n" );
+                bw.close();
+                fw.close();
+            } catch (IOException e) {
+                System.out.println("Error //"+ e.getMessage());
+            }
+                                                                                      
+        }
+        
     }//GEN-LAST:event_btnAgregarPActionPerformed
+
+    private void btnVerPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerPActionPerformed
+        File file = new File("Inventarios.txt");
+        ArrayList lista = new ArrayList <>();
+        jTextArea1.setText(null);
+        int cant = 0;
+        try {
+            Scanner scanner = new Scanner(file);
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("Error //"+ e.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_btnVerPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,10 +168,10 @@ public class Inventarios extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarP;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVerP;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblCantidadP;
     private javax.swing.JLabel lblProductosM;
     private javax.swing.JPanel pnlPrincipal;
-    private javax.swing.JScrollPane tblInven;
+    private javax.swing.JScrollPane textArea;
     // End of variables declaration//GEN-END:variables
 }
