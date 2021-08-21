@@ -95,6 +95,8 @@ public class Ventas extends javax.swing.JFrame {
         btnBotonBorrar = new javax.swing.JButton();
         btnPagar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
+        lblNombreC = new javax.swing.JLabel();
+        txtfNombreC = new javax.swing.JTextField();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,13 +152,18 @@ public class Ventas extends javax.swing.JFrame {
         pnlPrincipal.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 60, -1));
         pnlPrincipal.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, -1));
 
-        cbxProductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxProductos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ram", "Targeta madre", "SSD", "Disco Duro", "Teclados", "Mouse", "Monitor ", " " }));
+        cbxProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxProductosActionPerformed(evt);
+            }
+        });
         pnlPrincipal.add(cbxProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 110, -1));
 
         lblFactura.setFont(new java.awt.Font("Perpetua", 3, 48)); // NOI18N
         lblFactura.setForeground(new java.awt.Color(0, 255, 255));
         lblFactura.setText("Factura...");
-        pnlPrincipal.add(lblFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 270, -1));
+        pnlPrincipal.add(lblFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 190, -1));
 
         tblFac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -249,6 +256,13 @@ public class Ventas extends javax.swing.JFrame {
             }
         });
         pnlPrincipal.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 70, -1));
+
+        lblNombreC.setBackground(new java.awt.Color(0, 255, 255));
+        lblNombreC.setFont(new java.awt.Font("Perpetua", 3, 18)); // NOI18N
+        lblNombreC.setForeground(new java.awt.Color(0, 255, 255));
+        lblNombreC.setText("Nombre del cliente ");
+        pnlPrincipal.add(lblNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        pnlPrincipal.add(txtfNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Prueba1.jpg"))); // NOI18N
         pnlPrincipal.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 490));
@@ -354,7 +368,7 @@ public class Ventas extends javax.swing.JFrame {
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
 
         //Reportes mas imagen 
-        Reportes Facturacion = new Reportes(lblFactura.getText(),
+        Reportes Facturacion = new Reportes(txtfNombreC.getText(),
                 new Date().toString(),
                 FacturaR,
                 "J:\\Documentos\\Universidad\\Programacion de computadoras 1\\Repositorios\\Proyecto_Final\\Proyecto Final\\JavaApplication21\\src\\Iconos\\Logo F.png");
@@ -388,6 +402,10 @@ public class Ventas extends javax.swing.JFrame {
         pf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void cbxProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProductosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxProductosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -440,6 +458,7 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIVA;
     private javax.swing.JLabel lblIVAm;
+    private javax.swing.JLabel lblNombreC;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblPrecioTotal;
     private javax.swing.JLabel lblProductos;
@@ -454,6 +473,7 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JTable tblFac;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtfCantidad;
+    private javax.swing.JTextField txtfNombreC;
     private javax.swing.JTextField txtfPrecio;
     private javax.swing.JTextField txtfPrecioTotal;
     // End of variables declaration//GEN-END:variables
