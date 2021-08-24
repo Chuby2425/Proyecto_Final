@@ -6,9 +6,13 @@
 
 
 package ProyectoFinal;
+import java.awt.Color;
+import java.io.IOException;
+import java.lang.System.Logger;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
 
 /*import java.text.SimpleDateFormat;
 import java.util.Date;*/
@@ -182,6 +186,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSbtnProductos.setColorTextPressed(new java.awt.Color(0, 204, 204));
         rSbtnProductos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSbtnProductos.setIconTextGap(6);
+        rSbtnProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rSbtnProductosMousePressed(evt);
+            }
+        });
         rSbtnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSbtnProductosActionPerformed(evt);
@@ -200,6 +209,14 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSbtnhome.setDoubleBuffered(true);
         rSbtnhome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSbtnhome.setIconTextGap(13);
+        rSbtnhome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rSbtnhomeMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rSbtnhomeMousePressed(evt);
+            }
+        });
         rSbtnhome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSbtnhomeActionPerformed(evt);
@@ -218,6 +235,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSbtnventas1.setColorTextPressed(new java.awt.Color(0, 204, 204));
         rSbtnventas1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSbtnventas1.setIconTextGap(13);
+        rSbtnventas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rSbtnventas1MousePressed(evt);
+            }
+        });
         rSbtnventas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSbtnventas1ActionPerformed(evt);
@@ -232,6 +254,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSbtnPower.setColorTextNormal(new java.awt.Color(0, 0, 0));
         rSbtnPower.setColorTextPressed(new java.awt.Color(0, 0, 0));
         rSbtnPower.setIconTextGap(13);
+        rSbtnPower.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rSbtnPowerMousePressed(evt);
+            }
+        });
         rSbtnPower.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSbtnPowerActionPerformed(evt);
@@ -245,6 +272,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSButtonInventario.setText("Inventario");
         rSButtonInventario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSButtonInventario.setIconTextGap(6);
+        rSButtonInventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rSButtonInventarioMousePressed(evt);
+            }
+        });
         rSButtonInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSButtonInventarioActionPerformed(evt);
@@ -258,6 +290,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSButtonReportes.setText("Reportes");
         rSButtonReportes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSButtonReportes.setIconTextGap(9);
+        rSButtonReportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                rSButtonReportesMousePressed(evt);
+            }
+        });
         rSButtonReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSButtonReportesActionPerformed(evt);
@@ -347,6 +384,36 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         Login l = new Login();
         l.setVisible(true);
         this.dispose();
+        //para que los rs button no se queden marcados
+        if (this.rSbtnhome.isSelected()) {
+            this.rSbtnhome.setColorNormal(new Color(0,204,204));
+            this.rSbtnhome.setColorHover(new Color(0,204,204));
+            this.rSbtnhome.setColorPressed(new Color(0,204,204));
+            
+            this.rSbtnventas1.setColorNormal(new Color(0,139,139));
+            this.rSbtnventas1.setColorHover(new Color(0,204,204));
+            this.rSbtnventas1.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnProductos.setColorNormal(new Color(0,139,139));
+            this.rSbtnProductos.setColorHover(new Color(0,204,204));
+            this.rSbtnProductos.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonInventario.setColorNormal(new Color(0,139,139));
+            this.rSButtonInventario.setColorHover(new Color(0,204,204));
+            this.rSButtonInventario.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonReportes.setColorNormal(new Color(0,139,139));
+            this.rSButtonReportes.setColorHover(new Color(0,204,204));
+            this.rSButtonReportes.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnPower.setColorNormal(new Color(0,139,139));
+            this.rSbtnPower.setColorHover(new Color(0,204,204));
+            this.rSbtnPower.setColorPressed(new Color(0,139,139));
+        }else{
+            this.rSbtnhome.setColorNormal(new Color(0,139,139));
+            this.rSbtnhome.setColorHover(new Color(0,204,204));
+            this.rSbtnhome.setColorPressed(new Color(0,139,139));
+        }
     }//GEN-LAST:event_rSbtnhomeActionPerformed
 
     private void rsbtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rsbtnMenuActionPerformed
@@ -365,6 +432,36 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         p.setVisible(true);
         this.dispose();
         
+        if (this.rSbtnProductos.isSelected()) {
+            this.rSbtnhome.setColorNormal(new Color(0,139,139));
+            this.rSbtnhome.setColorHover(new Color(0,204,204));
+            this.rSbtnhome.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnventas1.setColorNormal(new Color(0,139,139));
+            this.rSbtnventas1.setColorHover(new Color(0,204,204));
+            this.rSbtnventas1.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnProductos.setColorNormal(new Color(0,204,204));
+            this.rSbtnProductos.setColorHover(new Color(0,204,204));
+            this.rSbtnProductos.setColorPressed(new Color(0,204,204));
+            
+            this.rSButtonInventario.setColorNormal(new Color(0,139,139));
+            this.rSButtonInventario.setColorHover(new Color(0,204,204));
+            this.rSButtonInventario.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonReportes.setColorNormal(new Color(0,139,139));
+            this.rSButtonReportes.setColorHover(new Color(0,204,204));
+            this.rSButtonReportes.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnPower.setColorNormal(new Color(0,139,139));
+            this.rSbtnPower.setColorHover(new Color(0,204,204));
+            this.rSbtnPower.setColorPressed(new Color(0,139,139));
+        }else{
+            this.rSbtnProductos.setColorNormal(new Color(0,139,139));
+            this.rSbtnProductos.setColorHover(new Color(0,204,204));
+            this.rSbtnProductos.setColorPressed(new Color(0,139,139));
+        }
+        
     }//GEN-LAST:event_rSbtnProductosActionPerformed
 
     private void rSbtnventas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnventas1ActionPerformed
@@ -373,11 +470,71 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         v.setVisible(true);
         this.dispose();
         
+        if (this.rSbtnventas1.isSelected()) {
+            this.rSbtnhome.setColorNormal(new Color(0,139,139));
+            this.rSbtnhome.setColorHover(new Color(0,204,204));
+            this.rSbtnhome.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnventas1.setColorNormal(new Color(0,139,139));
+            this.rSbtnventas1.setColorHover(new Color(0,204,204));
+            this.rSbtnventas1.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnProductos.setColorNormal(new Color(0,139,139));
+            this.rSbtnProductos.setColorHover(new Color(0,204,204));
+            this.rSbtnProductos.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonInventario.setColorNormal(new Color(0,139,139));
+            this.rSButtonInventario.setColorHover(new Color(0,204,204));
+            this.rSButtonInventario.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonReportes.setColorNormal(new Color(0,139,139));
+            this.rSButtonReportes.setColorHover(new Color(0,204,204));
+            this.rSButtonReportes.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnPower.setColorNormal(new Color(0,139,139));
+            this.rSbtnPower.setColorHover(new Color(0,204,204));
+            this.rSbtnPower.setColorPressed(new Color(0,139,139));
+        }else{
+            this.rSbtnventas1.setColorNormal(new Color(0,139,139));
+            this.rSbtnventas1.setColorHover(new Color(0,204,204));
+            this.rSbtnventas1.setColorPressed(new Color(0,139,139));
+        }
+        
     }//GEN-LAST:event_rSbtnventas1ActionPerformed
 
     private void rSbtnPowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnPowerActionPerformed
         // TODO add your handling code here:
         System.exit(0);
+        
+        if (this.rSbtnPower.isSelected()) {
+            this.rSbtnhome.setColorNormal(new Color(0,139,139));
+            this.rSbtnhome.setColorHover(new Color(0,204,204));
+            this.rSbtnhome.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnventas1.setColorNormal(new Color(0,204,204));
+            this.rSbtnventas1.setColorHover(new Color(0,204,204));
+            this.rSbtnventas1.setColorPressed(new Color(0,204,204));
+            
+            this.rSbtnProductos.setColorNormal(new Color(0,139,139));
+            this.rSbtnProductos.setColorHover(new Color(0,204,204));
+            this.rSbtnProductos.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonInventario.setColorNormal(new Color(0,139,139));
+            this.rSButtonInventario.setColorHover(new Color(0,204,204));
+            this.rSButtonInventario.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonReportes.setColorNormal(new Color(0,139,139));
+            this.rSButtonReportes.setColorHover(new Color(0,204,204));
+            this.rSButtonReportes.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnPower.setColorNormal(new Color(0,139,139));
+            this.rSbtnPower.setColorHover(new Color(0,204,204));
+            this.rSbtnPower.setColorPressed(new Color(0,139,139));
+        }else{
+            this.rSbtnPower.setColorNormal(new Color(0,139,139));
+            this.rSbtnPower.setColorHover(new Color(0,204,204));
+            this.rSbtnPower.setColorPressed(new Color(0,139,139));
+        }
     }//GEN-LAST:event_rSbtnPowerActionPerformed
 
     private void rSbtnhome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnhome1ActionPerformed
@@ -394,20 +551,142 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         i.setVisible(true);
         this.dispose();
         
+        if (this.rSButtonInventario.isSelected()) {
+            this.rSbtnhome.setColorNormal(new Color(0,139,139));
+            this.rSbtnhome.setColorHover(new Color(0,204,204));
+            this.rSbtnhome.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnventas1.setColorNormal(new Color(0,204,204));
+            this.rSbtnventas1.setColorHover(new Color(0,204,204));
+            this.rSbtnventas1.setColorPressed(new Color(0,204,204));
+            
+            this.rSbtnProductos.setColorNormal(new Color(0,139,139));
+            this.rSbtnProductos.setColorHover(new Color(0,204,204));
+            this.rSbtnProductos.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonInventario.setColorNormal(new Color(0,204,204));
+            this.rSButtonInventario.setColorHover(new Color(0,204,204));
+            this.rSButtonInventario.setColorPressed(new Color(0,204,204));
+            
+            this.rSButtonReportes.setColorNormal(new Color(0,139,139));
+            this.rSButtonReportes.setColorHover(new Color(0,204,204));
+            this.rSButtonReportes.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnPower.setColorNormal(new Color(0,139,139));
+            this.rSbtnPower.setColorHover(new Color(0,204,204));
+            this.rSbtnPower.setColorPressed(new Color(0,139,139));
+        }else{
+            this.rSButtonInventario.setColorNormal(new Color(0,139,139));
+            this.rSButtonInventario.setColorHover(new Color(0,204,204));
+            this.rSButtonInventario.setColorPressed(new Color(0,139,139));
+        }
         
     }//GEN-LAST:event_rSButtonInventarioActionPerformed
 
     private void rSButtonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonReportesActionPerformed
         
         try {
-            Runtime.getRuntime().exec("J:\\Documentos\\Universidad\\Programacion de computadoras 1\\Repositorios\\Proyecto_Final\\Proyecto Final\\JavaApplication21");
-            
-        } catch (Exception e) {
-            Logger.getL
+            Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /K start C:\\Users\\jesus\\Desktop\\UMCA");
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(ProyectoFinal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        if (this.rSButtonReportes.isSelected()) {
+            this.rSbtnhome.setColorNormal(new Color(0,139,139));
+            this.rSbtnhome.setColorHover(new Color(0,204,204));
+            this.rSbtnhome.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnventas1.setColorNormal(new Color(0,204,204));
+            this.rSbtnventas1.setColorHover(new Color(0,204,204));
+            this.rSbtnventas1.setColorPressed(new Color(0,204,204));
+            
+            this.rSbtnProductos.setColorNormal(new Color(0,139,139));
+            this.rSbtnProductos.setColorHover(new Color(0,204,204));
+            this.rSbtnProductos.setColorPressed(new Color(0,139,139));
+            
+            this.rSButtonInventario.setColorNormal(new Color(0,204,204));
+            this.rSButtonInventario.setColorHover(new Color(0,204,204));
+            this.rSButtonInventario.setColorPressed(new Color(0,204,204));
+            
+            this.rSButtonReportes.setColorNormal(new Color(0,139,139));
+            this.rSButtonReportes.setColorHover(new Color(0,204,204));
+            this.rSButtonReportes.setColorPressed(new Color(0,139,139));
+            
+            this.rSbtnPower.setColorNormal(new Color(0,139,139));
+            this.rSbtnPower.setColorHover(new Color(0,204,204));
+            this.rSbtnPower.setColorPressed(new Color(0,139,139));
+        }else{
+            this.rSButtonReportes.setColorNormal(new Color(0,139,139));
+            this.rSButtonReportes.setColorHover(new Color(0,204,204));
+            this.rSButtonReportes.setColorPressed(new Color(0,139,139));
+        }
         
     }//GEN-LAST:event_rSButtonReportesActionPerformed
+
+    private void rSbtnhomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSbtnhomeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSbtnhomeMouseClicked
+
+    private void rSbtnhomeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSbtnhomeMousePressed
+        // TODO add your handling code here:
+        this.rSbtnhome.setSelected(true);
+        this.rSbtnventas1.setSelected(false);
+        this.rSbtnProductos.setSelected(false);
+        this.rSButtonInventario.setSelected(false);
+        this.rSButtonReportes.setSelected(false);
+        this.rSbtnPower.setSelected(false);
+        
+    }//GEN-LAST:event_rSbtnhomeMousePressed
+
+    private void rSbtnventas1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSbtnventas1MousePressed
+        // TODO add your handling code here:
+        this.rSbtnhome.setSelected(false);
+        this.rSbtnventas1.setSelected(true);
+        this.rSbtnProductos.setSelected(false);
+        this.rSButtonInventario.setSelected(false);
+        this.rSButtonReportes.setSelected(false);
+        this.rSbtnPower.setSelected(false);
+    }//GEN-LAST:event_rSbtnventas1MousePressed
+
+    private void rSbtnProductosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSbtnProductosMousePressed
+        // TODO add your handling code here:
+        this.rSbtnhome.setSelected(false);
+        this.rSbtnventas1.setSelected(false);
+        this.rSbtnProductos.setSelected(true);
+        this.rSButtonInventario.setSelected(false);
+        this.rSButtonReportes.setSelected(false);
+        this.rSbtnPower.setSelected(false);
+    }//GEN-LAST:event_rSbtnProductosMousePressed
+
+    private void rSButtonInventarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSButtonInventarioMousePressed
+        // TODO add your handling code here:
+        this.rSbtnhome.setSelected(false);
+        this.rSbtnventas1.setSelected(false);
+        this.rSbtnProductos.setSelected(false);
+        this.rSButtonInventario.setSelected(true);
+        this.rSButtonReportes.setSelected(false);
+        this.rSbtnPower.setSelected(false);
+    }//GEN-LAST:event_rSButtonInventarioMousePressed
+
+    private void rSButtonReportesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSButtonReportesMousePressed
+        // TODO add your handling code here:
+        this.rSbtnhome.setSelected(false);
+        this.rSbtnventas1.setSelected(false);
+        this.rSbtnProductos.setSelected(false);
+        this.rSButtonInventario.setSelected(false);
+        this.rSButtonReportes.setSelected(true);
+        this.rSbtnPower.setSelected(false);
+    }//GEN-LAST:event_rSButtonReportesMousePressed
+
+    private void rSbtnPowerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSbtnPowerMousePressed
+        // TODO add your handling code here:
+        this.rSbtnhome.setSelected(false);
+        this.rSbtnventas1.setSelected(false);
+        this.rSbtnProductos.setSelected(false);
+        this.rSButtonInventario.setSelected(false);
+        this.rSButtonReportes.setSelected(false);
+        this.rSbtnPower.setSelected(true);
+    }//GEN-LAST:event_rSbtnPowerMousePressed
 
     /**
      * @param args the command line arguments

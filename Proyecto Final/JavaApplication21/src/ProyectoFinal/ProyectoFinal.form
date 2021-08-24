@@ -245,6 +245,7 @@
                 <Property name="iconTextGap" type="int" value="6"/>
               </Properties>
               <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rSbtnProductosMousePressed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSbtnProductosActionPerformed"/>
               </Events>
               <Constraints>
@@ -280,6 +281,8 @@
                 <Property name="iconTextGap" type="int" value="13"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rSbtnhomeMouseClicked"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rSbtnhomeMousePressed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSbtnhomeActionPerformed"/>
               </Events>
               <Constraints>
@@ -317,6 +320,7 @@
                 <Property name="iconTextGap" type="int" value="13"/>
               </Properties>
               <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rSbtnventas1MousePressed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSbtnventas1ActionPerformed"/>
               </Events>
               <Constraints>
@@ -346,6 +350,7 @@
                 <Property name="iconTextGap" type="int" value="13"/>
               </Properties>
               <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rSbtnPowerMousePressed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSbtnPowerActionPerformed"/>
               </Events>
               <Constraints>
@@ -370,6 +375,7 @@
                 <Property name="iconTextGap" type="int" value="6"/>
               </Properties>
               <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rSButtonInventarioMousePressed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonInventarioActionPerformed"/>
               </Events>
               <Constraints>
@@ -394,6 +400,7 @@
                 <Property name="iconTextGap" type="int" value="9"/>
               </Properties>
               <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rSButtonReportesMousePressed"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rSButtonReportesActionPerformed"/>
               </Events>
               <Constraints>
