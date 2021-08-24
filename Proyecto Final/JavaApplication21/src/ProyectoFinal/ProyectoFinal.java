@@ -258,6 +258,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSButtonReportes.setText("Reportes");
         rSButtonReportes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSButtonReportes.setIconTextGap(9);
+        rSButtonReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonReportesActionPerformed(evt);
+            }
+        });
         panelLateral_I.add(rSButtonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 118, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo-futurista-moderno-abstracto_38127-6.jpg"))); // NOI18N
@@ -391,6 +396,18 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         
         
     }//GEN-LAST:event_rSButtonInventarioActionPerformed
+
+    private void rSButtonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonReportesActionPerformed
+        
+        try {
+            Runtime.getRuntime().exec("J:\\Documentos\\Universidad\\Programacion de computadoras 1\\Repositorios\\Proyecto_Final\\Proyecto Final\\JavaApplication21");
+            
+        } catch (Exception e) {
+            Logger.getL
+        }
+        
+        
+    }//GEN-LAST:event_rSButtonReportesActionPerformed
 
     /**
      * @param args the command line arguments

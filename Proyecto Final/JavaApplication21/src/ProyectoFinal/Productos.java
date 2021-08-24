@@ -19,6 +19,8 @@ public class Productos extends javax.swing.JFrame {
         // para txt
         Lis = new ArrayList<DatosInventario>();
         initComponents();
+        
+       
         verDatos();
         cargar();
 
@@ -310,11 +312,16 @@ public class Productos extends javax.swing.JFrame {
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
 
     }//GEN-LAST:event_btnRegresarActionPerformed
-    
+    public void prueba(){
+        
+        
+    }
     // este metodo muestra todo lo que se tiene guardado en el txt
 
    
     public void cargar(){
+        
+        
         File Archivo = new File("Inventarios.txt");
         FileReader Leer;
         BufferedReader Almacen;
