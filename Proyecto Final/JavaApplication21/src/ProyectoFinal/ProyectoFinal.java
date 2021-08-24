@@ -171,7 +171,8 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         panelLateral_I.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSbtnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
-        rSbtnProductos.setText("Compras");
+        rSbtnProductos.setText(" Agregar  Producto");
+        rSbtnProductos.setToolTipText("");
         rSbtnProductos.setAutoscrolls(true);
         rSbtnProductos.setColorHover(new java.awt.Color(0, 204, 204));
         rSbtnProductos.setColorNormal(new java.awt.Color(0, 0, 0));
@@ -186,7 +187,7 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
                 rSbtnProductosActionPerformed(evt);
             }
         });
-        panelLateral_I.add(rSbtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 118, 50));
+        panelLateral_I.add(rSbtnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, 60));
 
         rSbtnhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home (1).png"))); // NOI18N
         rSbtnhome.setText("Inicio");
@@ -249,7 +250,7 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
                 rSButtonInventarioActionPerformed(evt);
             }
         });
-        panelLateral_I.add(rSButtonInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 118, 50));
+        panelLateral_I.add(rSButtonInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 118, 50));
 
         rSButtonReportes.setBackground(new java.awt.Color(0, 0, 0));
         rSButtonReportes.setForeground(new java.awt.Color(0, 204, 204));
@@ -257,7 +258,7 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSButtonReportes.setText("Reportes");
         rSButtonReportes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSButtonReportes.setIconTextGap(9);
-        panelLateral_I.add(rSButtonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 118, 50));
+        panelLateral_I.add(rSButtonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 118, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo-futurista-moderno-abstracto_38127-6.jpg"))); // NOI18N
         panelLateral_I.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 130, 370));
@@ -383,7 +384,12 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
     }//GEN-LAST:event_rSbtnventas2ActionPerformed
 
     private void rSButtonInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonInventarioActionPerformed
-        // TODO add your handling code here:
+  
+        Inventarios i = new Inventarios();
+        i.setVisible(true);
+        this.dispose();
+        
+        
     }//GEN-LAST:event_rSButtonInventarioActionPerformed
 
     /**

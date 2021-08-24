@@ -1,13 +1,18 @@
 
 package Clases;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+
 public class DatosInventario {
     
     private String codigo, nombre, cantidad, precioInterno, precioVenta;
 
-    public DatosInventario() {
-    }
-
+    
+    
+    
+    
+    
     public DatosInventario(String codigo, String nombre, String cantidad, String precioInterno, String precioVenta) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -15,9 +20,13 @@ public class DatosInventario {
         this.precioInterno = precioInterno;
         this.precioVenta = precioVenta;
     }
-    
-    
 
+    public DatosInventario() {
+    }
+
+   
+
+ 
     public String getCodigo() {
         return codigo;
     }
@@ -57,6 +66,35 @@ public class DatosInventario {
     public void setPrecioVenta(String precioVenta) {
         this.precioVenta = precioVenta;
     }
+
+    public void guardar(PrintWriter Escribe) {
+        Escribe.println(codigo);
+        Escribe.println(nombre);
+        Escribe.println(cantidad);
+        Escribe.println(precioInterno);
+        Escribe.println(precioVenta);
+    }
+// este metodo es para poder mostrar la informacion de la tablq
+    public DatosInventario cargar(BufferedReader Almacen) {
+        
+        
+        String codi;
+        String nomP;
+        String canti;
+        String pInter;
+        String pVenta;
+        try {
+            codi = Almacen.readLine();
+            nomP = Almacen.readLine();
+            canti = Almacen.readLine();
+            pInter = Almacen.readLine();
+            pVenta = Almacen.readLine();
+            return new DatosInventario(codi,nomP,canti,pInter,pVenta);    
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     
     
     
