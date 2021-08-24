@@ -6,6 +6,7 @@
 
 
 package ProyectoFinal;
+import Lógica.componentes;
 import java.awt.Color;
 import java.io.IOException;
 import java.lang.System.Logger;
@@ -32,6 +33,13 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
     }
     public ProyectoFinal() {
         initComponents();
+        //determinar que puede ver un vendedor en el menu
+        if (componentes.rol.equals("Vendedor")) {
+            rSbtnProductos.setVisible(false);
+        }
+        
+        
+        
         //Lo hizo antes de hacer el menu desplegable 
         this.setLocationRelativeTo(this);
         this.rsbtnMenu.setSelected(true);

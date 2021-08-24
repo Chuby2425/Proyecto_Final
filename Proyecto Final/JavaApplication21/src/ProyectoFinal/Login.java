@@ -15,6 +15,7 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
+        
     }
 
     
@@ -54,6 +55,9 @@ public class Login extends javax.swing.JFrame {
 
         rsbtnLogin.setBackground(new java.awt.Color(0, 0, 0));
         rsbtnLogin.setText("Login");
+        rsbtnLogin.setColorHover(new java.awt.Color(153, 0, 153));
+        rsbtnLogin.setColorNormal(new java.awt.Color(0, 0, 0));
+        rsbtnLogin.setColorTextPressed(new java.awt.Color(153, 0, 153));
         rsbtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rsbtnLoginActionPerformed(evt);
@@ -63,6 +67,9 @@ public class Login extends javax.swing.JFrame {
 
         rsbtnRegistrarse.setBackground(new java.awt.Color(0, 0, 0));
         rsbtnRegistrarse.setText("Registrarse");
+        rsbtnRegistrarse.setColorHover(new java.awt.Color(153, 0, 153));
+        rsbtnRegistrarse.setColorNormal(new java.awt.Color(0, 0, 0));
+        rsbtnRegistrarse.setColorTextPressed(new java.awt.Color(153, 0, 153));
         rsbtnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rsbtnRegistrarseActionPerformed(evt);
@@ -100,11 +107,16 @@ public class Login extends javax.swing.JFrame {
         String usuario = txtUsuario.getText();
         String contraseña = String.valueOf(txtpassContraseña.getText());
         
+        
+        
         boolean inicio = true;
         
         for (datosLogin i : componentes.usuarios) {
             if (i.getUsuario().equals(usuario) && i.getContraseña().equals(contraseña)) {
+                //llamar a componentes para determinar que puede ver un vendedor
+                componentes.rol = i.getRoles();
                 inicio = true;
+                break;
             }else{
                 inicio = false;
             }
