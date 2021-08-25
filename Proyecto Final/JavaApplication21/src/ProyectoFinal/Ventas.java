@@ -63,6 +63,13 @@ public class Ventas extends javax.swing.JFrame {
     // Fran despues de que nos ayudaron se cago en el github 24/08/2021
     // Gracias por existir Fran
     
+    
+    
+    
+    //holaaaaaaaaaa
+    
+    
+    
     @SuppressWarnings("unchecked")
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
