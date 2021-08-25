@@ -171,7 +171,7 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         panelLateral_I.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rSbtnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
-        rSbtnProductos.setText("Compras");
+        rSbtnProductos.setText("Productos");
         rSbtnProductos.setAutoscrolls(true);
         rSbtnProductos.setColorHover(new java.awt.Color(0, 204, 204));
         rSbtnProductos.setColorNormal(new java.awt.Color(0, 0, 0));
