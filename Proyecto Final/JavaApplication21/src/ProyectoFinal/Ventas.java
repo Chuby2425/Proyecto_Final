@@ -61,6 +61,7 @@ public class Ventas extends javax.swing.JFrame {
     // fran se echo el github  2/8/2021  
     // Fran se echo la pc ahora -_- y a empesar con toda la configuracion 4/8/2021
     // Fran despues de que nos ayudaron se cago en el github 24/08/2021
+    // Gracias por existir Fran
     
     @SuppressWarnings("unchecked")
 

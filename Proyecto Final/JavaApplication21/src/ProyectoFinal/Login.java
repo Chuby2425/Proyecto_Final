@@ -107,16 +107,11 @@ public class Login extends javax.swing.JFrame {
         String usuario = txtUsuario.getText();
         String contraseña = String.valueOf(txtpassContraseña.getText());
         
-        
-        
         boolean inicio = true;
         
         for (datosLogin i : componentes.usuarios) {
             if (i.getUsuario().equals(usuario) && i.getContraseña().equals(contraseña)) {
-                //llamar a componentes para determinar que puede ver un vendedor
-                componentes.rol = i.getRoles();
                 inicio = true;
-                break;
             }else{
                 inicio = false;
             }
