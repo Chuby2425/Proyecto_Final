@@ -184,7 +184,10 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
 
         rSbtnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
         rSbtnProductos.setText("Productos");
+<<<<<<< Updated upstream
         rSbtnProductos.setToolTipText("");
+=======
+>>>>>>> Stashed changes
         rSbtnProductos.setAutoscrolls(true);
         rSbtnProductos.setColorHover(new java.awt.Color(0, 102, 102));
         rSbtnProductos.setColorNormal(new java.awt.Color(0, 0, 0));
