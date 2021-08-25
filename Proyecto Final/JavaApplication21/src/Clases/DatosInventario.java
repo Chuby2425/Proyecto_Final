@@ -3,7 +3,6 @@ package Clases;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-<<<<<<< Updated upstream
 
 public class DatosInventario {
     
@@ -37,44 +36,35 @@ public class DatosInventario {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-=======
 
-
-public class DatosInventario {
-    
-    private Producto producto;
-    private int cantidad;
-
->>>>>>> Stashed changes
-
-    
-    public DatosInventario(Producto pproducto, int pcantidad) {
-        this.producto = pproducto;
-        this.cantidad = pcantidad;
+    public String getNombre() {
+        return nombre;
     }
 
-    public DatosInventario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public Producto getProducto(){
-        return this.producto;    
-    }
-    
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-
-    public int getCantidad() {
+    public String getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int pcantidad) {
-        this.cantidad = pcantidad;
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
     }
 
-<<<<<<< Updated upstream
+    public String getPrecioInterno() {
+        return precioInterno;
+    }
+
+    public void setPrecioInterno(String precioInterno) {
+        this.precioInterno = precioInterno;
+    }
+
+    public String getPrecioVenta() {
+        return precioVenta;
+    }
+
     public void setPrecioVenta(String precioVenta) {
         this.precioVenta = precioVenta;
     }
@@ -111,6 +101,3 @@ public class DatosInventario {
     
     
 }
-=======
-}
->>>>>>> Stashed changes
