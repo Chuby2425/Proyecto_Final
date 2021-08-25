@@ -92,9 +92,10 @@ public class Registro extends javax.swing.JFrame {
 
         rsbtnRegistrase.setBackground(new java.awt.Color(0, 0, 0));
         rsbtnRegistrase.setText("Registrarse");
-        rsbtnRegistrase.setColorHover(new java.awt.Color(153, 0, 153));
+        rsbtnRegistrase.setColorHover(new java.awt.Color(102, 0, 102));
         rsbtnRegistrase.setColorNormal(new java.awt.Color(0, 0, 0));
-        rsbtnRegistrase.setColorTextPressed(new java.awt.Color(153, 0, 153));
+        rsbtnRegistrase.setColorTextHover(new java.awt.Color(102, 0, 102));
+        rsbtnRegistrase.setColorTextPressed(new java.awt.Color(102, 0, 102));
         rsbtnRegistrase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rsbtnRegistraseActionPerformed(evt);
@@ -106,6 +107,7 @@ public class Registro extends javax.swing.JFrame {
         btnVolverLogin.setText("Volver");
         btnVolverLogin.setColorHover(new java.awt.Color(153, 0, 153));
         btnVolverLogin.setColorNormal(new java.awt.Color(0, 0, 0));
+        btnVolverLogin.setColorTextHover(new java.awt.Color(153, 0, 153));
         btnVolverLogin.setColorTextPressed(new java.awt.Color(153, 0, 153));
         btnVolverLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -54,7 +54,6 @@ public class Ventas extends javax.swing.JFrame {
         txtfCantidad.setText("");
         cbxProductos.setSelectedItem("");
         txtfPrecio.setText("");
-        txtfPrecioTotal.setText("");
     }
 
     //fran se cargo en medio proyecto 30/6/2021 
@@ -79,12 +78,9 @@ public class Ventas extends javax.swing.JFrame {
         lblCantidad = new javax.swing.JLabel();
         lblProductos = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
-        lblPrecioTotal = new javax.swing.JLabel();
         txtfCantidad = new javax.swing.JTextField();
         txtfPrecio = new javax.swing.JTextField();
-        txtfPrecioTotal = new javax.swing.JTextField();
         lblSubTotal = new javax.swing.JLabel();
-        lblDescuento = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
         lblCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
@@ -94,7 +90,6 @@ public class Ventas extends javax.swing.JFrame {
         tblFac = new javax.swing.JTable();
         btnCalcular = new javax.swing.JButton();
         lblSTotal = new javax.swing.JLabel();
-        lblDes = new javax.swing.JLabel();
         lblIVA = new javax.swing.JLabel();
         lblIVAm = new javax.swing.JLabel();
         lblTot = new javax.swing.JLabel();
@@ -132,29 +127,18 @@ public class Ventas extends javax.swing.JFrame {
         lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrecio.setText("PRECIO");
         pnlPrincipal.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 100, -1));
-
-        lblPrecioTotal.setFont(new java.awt.Font("Perpetua", 3, 14)); // NOI18N
-        lblPrecioTotal.setForeground(new java.awt.Color(0, 255, 255));
-        lblPrecioTotal.setText("PRECIO TOTAL");
-        pnlPrincipal.add(lblPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, 20));
         pnlPrincipal.add(txtfCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 80, -1));
         pnlPrincipal.add(txtfPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 100, -1));
-        pnlPrincipal.add(txtfPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 100, -1));
 
         lblSubTotal.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblSubTotal.setForeground(new java.awt.Color(0, 255, 255));
         lblSubTotal.setText("Sub Total");
         pnlPrincipal.add(lblSubTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 70, -1));
 
-        lblDescuento.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        lblDescuento.setForeground(new java.awt.Color(0, 255, 255));
-        lblDescuento.setText("Descuento");
-        pnlPrincipal.add(lblDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
-
         lblTotal.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblTotal.setForeground(new java.awt.Color(0, 255, 255));
         lblTotal.setText("Total");
-        pnlPrincipal.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 60, -1));
+        pnlPrincipal.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 60, -1));
 
         lblCodigo.setFont(new java.awt.Font("Perpetua", 3, 14)); // NOI18N
         lblCodigo.setForeground(new java.awt.Color(0, 255, 255));
@@ -172,7 +156,7 @@ public class Ventas extends javax.swing.JFrame {
 
         lblFactura.setFont(new java.awt.Font("Perpetua", 3, 48)); // NOI18N
         lblFactura.setForeground(new java.awt.Color(0, 255, 255));
-        lblFactura.setText("Factura...");
+        lblFactura.setText("Facturar");
         pnlPrincipal.add(lblFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 190, -1));
 
         tblFac.setModel(new javax.swing.table.DefaultTableModel(
@@ -196,28 +180,24 @@ public class Ventas extends javax.swing.JFrame {
                 btnCalcularActionPerformed(evt);
             }
         });
-        pnlPrincipal.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 110, 30));
+        pnlPrincipal.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 110, 30));
 
         lblSTotal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblSTotal.setForeground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.add(lblSTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 60, 20));
 
-        lblDes.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblDes.setForeground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.add(lblDes, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 60, 20));
-
         lblIVA.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         lblIVA.setForeground(new java.awt.Color(0, 255, 255));
         lblIVA.setText("I.V.A");
-        pnlPrincipal.add(lblIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
+        pnlPrincipal.add(lblIVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, -1, -1));
 
         lblIVAm.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblIVAm.setForeground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.add(lblIVAm, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 50, 20));
+        pnlPrincipal.add(lblIVAm, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 50, 20));
 
         lblTot.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblTot.setForeground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.add(lblTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 80, 20));
+        pnlPrincipal.add(lblTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, 80, 20));
 
         btnEliminar.setText("Eliminar Fila ");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -298,7 +278,7 @@ public class Ventas extends javax.swing.JFrame {
         String cantidad = txtfCantidad.getText();
         String productos = cbxProductos.getSelectedItem().toString();
         String precio = txtfPrecio.getText();
-        String ptot = txtfPrecioTotal.getText();
+        
 
         int subtotal = Integer.parseInt(cantidad) * Integer.parseInt(precio);
         double IVA = subtotal * 0.13;
@@ -313,19 +293,13 @@ public class Ventas extends javax.swing.JFrame {
 
         if (rbtnSinpe.isSelected()) {
             precioTotal = descSinpe;
-            lblDes.setText("" + descSinpe);
         } else if (rbtnEfectivo.isSelected()) {
             precioTotal = descEfectivo;
-            lblDes.setText("" + descEfectivo);
         } else if (rbtnTarjertas.isSelected()) {
             precioTotal = descTarjeta;
-            lblDes.setText("" + descTarjeta);
         }
 
-        String odes = lblDes.getText();
-
         lblSTotal.setText("" + subtotal);
-        lblDes.setText("" + odes);
         lblIVAm.setText("" + IVA);
         lblTot.setText("" + precioTotal);
 
@@ -390,7 +364,7 @@ public class Ventas extends javax.swing.JFrame {
         produc.setCantidad(txtfCantidad.getText());
         //productos.setcodigo(cbxProductos.);
         produc.setPreciouni(txtfPrecio.getText());
-        produc.setpretotal(txtfPrecioTotal.getText());
+        
 
         FacturaR.add(produc);
         mdlTabla.addRow(new Object[]{
@@ -462,15 +436,12 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblCodigo;
-    private javax.swing.JLabel lblDes;
-    private javax.swing.JLabel lblDescuento;
     private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIVA;
     private javax.swing.JLabel lblIVAm;
     private javax.swing.JLabel lblNombreC;
     private javax.swing.JLabel lblPrecio;
-    private javax.swing.JLabel lblPrecioTotal;
     private javax.swing.JLabel lblProductos;
     private javax.swing.JLabel lblSTotal;
     private javax.swing.JLabel lblSubTotal;
@@ -485,6 +456,5 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JTextField txtfCantidad;
     private javax.swing.JTextField txtfNombreC;
     private javax.swing.JTextField txtfPrecio;
-    private javax.swing.JTextField txtfPrecioTotal;
     // End of variables declaration//GEN-END:variables
 }

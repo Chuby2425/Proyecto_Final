@@ -6,9 +6,12 @@
 
 
 package ProyectoFinal;
+import Lógica.componentes;
+import java.io.IOException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
 
 /*import java.text.SimpleDateFormat;
 import java.util.Date;*/
@@ -35,6 +38,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         hilo = new Thread(this);
         hilo.start();
         setVisible(true);
+        
+        //se determina que ventanas puede ver el vendedor
+        if (componentes.rol.equals("Vendedor")) {
+            rSButtonReportes.setVisible(false);
+        }
         
             
         //Fecha del sistema 
@@ -173,9 +181,8 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSbtnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/producto.png"))); // NOI18N
         rSbtnProductos.setText("Productos");
         rSbtnProductos.setAutoscrolls(true);
-        rSbtnProductos.setColorHover(new java.awt.Color(0, 204, 204));
+        rSbtnProductos.setColorHover(new java.awt.Color(0, 102, 102));
         rSbtnProductos.setColorNormal(new java.awt.Color(0, 0, 0));
-        rSbtnProductos.setColorPressed(new java.awt.Color(0, 204, 204));
         rSbtnProductos.setColorTextHover(new java.awt.Color(0, 204, 204));
         rSbtnProductos.setColorTextNormal(new java.awt.Color(0, 204, 204));
         rSbtnProductos.setColorTextPressed(new java.awt.Color(0, 204, 204));
@@ -190,11 +197,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
 
         rSbtnhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home (1).png"))); // NOI18N
         rSbtnhome.setText("Inicio");
+        rSbtnhome.setColorHover(new java.awt.Color(0, 102, 102));
         rSbtnhome.setColorNormal(new java.awt.Color(0, 0, 0));
-        rSbtnhome.setColorPressed(new java.awt.Color(0, 204, 204));
         rSbtnhome.setColorTextHover(new java.awt.Color(0, 204, 204));
         rSbtnhome.setColorTextNormal(new java.awt.Color(0, 204, 204));
-        rSbtnhome.setColorTextPressed(new java.awt.Color(5, 42, 45));
+        rSbtnhome.setColorTextPressed(new java.awt.Color(0, 204, 204));
         rSbtnhome.setDefaultCapable(false);
         rSbtnhome.setDoubleBuffered(true);
         rSbtnhome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -210,8 +217,8 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSbtnventas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrito-de-compras.png"))); // NOI18N
         rSbtnventas1.setText("Ventas");
         rSbtnventas1.setToolTipText("");
-        rSbtnventas1.setColorHover(new java.awt.Color(0, 0, 0));
-        rSbtnventas1.setColorPressed(new java.awt.Color(0, 204, 204));
+        rSbtnventas1.setColorHover(new java.awt.Color(0, 102, 102));
+        rSbtnventas1.setColorNormal(new java.awt.Color(0, 0, 0));
         rSbtnventas1.setColorTextHover(new java.awt.Color(0, 204, 204));
         rSbtnventas1.setColorTextNormal(new java.awt.Color(0, 204, 204));
         rSbtnventas1.setColorTextPressed(new java.awt.Color(0, 204, 204));
@@ -227,9 +234,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSbtnPower.setBackground(new java.awt.Color(0, 0, 0));
         rSbtnPower.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pngwing.com.png"))); // NOI18N
         rSbtnPower.setAutoscrolls(true);
-        rSbtnPower.setColorTextHover(new java.awt.Color(0, 0, 0));
-        rSbtnPower.setColorTextNormal(new java.awt.Color(0, 0, 0));
-        rSbtnPower.setColorTextPressed(new java.awt.Color(0, 0, 0));
+        rSbtnPower.setColorHover(new java.awt.Color(0, 102, 102));
+        rSbtnPower.setColorNormal(new java.awt.Color(0, 0, 0));
+        rSbtnPower.setColorTextHover(new java.awt.Color(0, 204, 204));
+        rSbtnPower.setColorTextNormal(new java.awt.Color(0, 204, 204));
+        rSbtnPower.setColorTextPressed(new java.awt.Color(0, 204, 204));
         rSbtnPower.setIconTextGap(13);
         rSbtnPower.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,6 +251,11 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSButtonInventario.setForeground(new java.awt.Color(0, 204, 204));
         rSButtonInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/e.png"))); // NOI18N
         rSButtonInventario.setText("Inventario");
+        rSButtonInventario.setColorHover(new java.awt.Color(0, 102, 102));
+        rSButtonInventario.setColorNormal(new java.awt.Color(0, 0, 0));
+        rSButtonInventario.setColorTextHover(new java.awt.Color(0, 204, 204));
+        rSButtonInventario.setColorTextNormal(new java.awt.Color(0, 204, 204));
+        rSButtonInventario.setColorTextPressed(new java.awt.Color(0, 204, 204));
         rSButtonInventario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSButtonInventario.setIconTextGap(6);
         panelLateral_I.add(rSButtonInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 118, 50));
@@ -250,8 +264,18 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
         rSButtonReportes.setForeground(new java.awt.Color(0, 204, 204));
         rSButtonReportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/y.png"))); // NOI18N
         rSButtonReportes.setText("Reportes");
+        rSButtonReportes.setColorHover(new java.awt.Color(0, 102, 102));
+        rSButtonReportes.setColorNormal(new java.awt.Color(0, 0, 0));
+        rSButtonReportes.setColorTextHover(new java.awt.Color(0, 204, 204));
+        rSButtonReportes.setColorTextNormal(new java.awt.Color(0, 204, 204));
+        rSButtonReportes.setColorTextPressed(new java.awt.Color(0, 204, 204));
         rSButtonReportes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         rSButtonReportes.setIconTextGap(9);
+        rSButtonReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonReportesActionPerformed(evt);
+            }
+        });
         panelLateral_I.add(rSButtonReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 118, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo-futurista-moderno-abstracto_38127-6.jpg"))); // NOI18N
@@ -376,6 +400,15 @@ public class ProyectoFinal extends javax.swing.JFrame implements Runnable{
     private void rSbtnventas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSbtnventas2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rSbtnventas2ActionPerformed
+
+    private void rSButtonReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonReportesActionPerformed
+        // TODO add your handling code here:
+        try {
+            Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /K start C:\\Users\\jesus\\Desktop\\UMCA");
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(ProyectoFinal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_rSButtonReportesActionPerformed
 
     /**
      * @param args the command line arguments

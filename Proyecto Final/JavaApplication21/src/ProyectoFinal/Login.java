@@ -55,9 +55,10 @@ public class Login extends javax.swing.JFrame {
 
         rsbtnLogin.setBackground(new java.awt.Color(0, 0, 0));
         rsbtnLogin.setText("Login");
-        rsbtnLogin.setColorHover(new java.awt.Color(153, 0, 153));
+        rsbtnLogin.setColorHover(new java.awt.Color(102, 0, 102));
         rsbtnLogin.setColorNormal(new java.awt.Color(0, 0, 0));
-        rsbtnLogin.setColorTextPressed(new java.awt.Color(153, 0, 153));
+        rsbtnLogin.setColorTextHover(new java.awt.Color(102, 0, 102));
+        rsbtnLogin.setColorTextPressed(new java.awt.Color(102, 0, 102));
         rsbtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rsbtnLoginActionPerformed(evt);
@@ -67,9 +68,10 @@ public class Login extends javax.swing.JFrame {
 
         rsbtnRegistrarse.setBackground(new java.awt.Color(0, 0, 0));
         rsbtnRegistrarse.setText("Registrarse");
-        rsbtnRegistrarse.setColorHover(new java.awt.Color(153, 0, 153));
+        rsbtnRegistrarse.setColorHover(new java.awt.Color(102, 0, 102));
         rsbtnRegistrarse.setColorNormal(new java.awt.Color(0, 0, 0));
-        rsbtnRegistrarse.setColorTextPressed(new java.awt.Color(153, 0, 153));
+        rsbtnRegistrarse.setColorTextHover(new java.awt.Color(102, 0, 102));
+        rsbtnRegistrarse.setColorTextPressed(new java.awt.Color(102, 0, 102));
         rsbtnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rsbtnRegistrarseActionPerformed(evt);
@@ -111,7 +113,9 @@ public class Login extends javax.swing.JFrame {
         
         for (datosLogin i : componentes.usuarios) {
             if (i.getUsuario().equals(usuario) && i.getContraseña().equals(contraseña)) {
+                componentes.rol = i.getRoles();
                 inicio = true;
+                break;
             }else{
                 inicio = false;
             }
