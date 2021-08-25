@@ -59,7 +59,7 @@ public class DatosFactura {
     public void setPrecioTotal(String precioTotal) {
         this.precioTotal = precioTotal;
     }
-
+ 
     
     
     
